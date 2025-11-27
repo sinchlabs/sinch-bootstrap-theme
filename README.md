@@ -2,6 +2,7 @@
 
 > A production-ready Bootstrap 5 theme based on Sinch's official brand guidelines and Nectary Design System.
 
+[![npm version](https://img.shields.io/npm/v/@sinchlabs/bootstrap-theme.svg)](https://www.npmjs.com/package/@sinchlabs/bootstrap-theme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3+-purple.svg)](https://getbootstrap.com)
 [![CDN](https://img.shields.io/badge/CDN-jsDelivr-orange.svg)](https://www.jsdelivr.com/package/gh/sinchlabs/sinch-bootstrap-theme)
@@ -51,7 +52,42 @@ Add these lines to your HTML:
 </html>
 ```
 
-### Option 2: NPM/Download
+### Option 2: NPM (Recommended for Projects)
+
+```bash
+npm install @sinchlabs/bootstrap-theme
+```
+
+**With bundlers (webpack, vite, parcel, etc.):**
+
+```javascript
+// In your main JS/TS file
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@sinchlabs/bootstrap-theme/css/sinch-theme.css';
+```
+
+**With SCSS:**
+
+```scss
+// Import Sinch variables BEFORE Bootstrap
+@import '@sinchlabs/bootstrap-theme/css/sinch-variables.scss';
+
+// Then import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+```
+
+**Programmatic access to assets:**
+
+```javascript
+const sinchTheme = require('@sinchlabs/bootstrap-theme');
+
+// Get paths to assets
+console.log(sinchTheme.css);           // Path to main CSS
+console.log(sinchTheme.iconSprite);    // Path to icon sprite
+console.log(sinchTheme.getIconPath('sinch-sms')); // Path to specific icon
+```
+
+### Option 3: Download/Clone
 
 ```bash
 # Clone or download this repo

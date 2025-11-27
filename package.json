@@ -1,0 +1,50 @@
+{
+  "name": "@sinchlabs/bootstrap-theme",
+  "version": "1.0.0",
+  "description": "Sinch Bootstrap 5 theme based on official brand guidelines and Nectary Design System",
+  "keywords": [
+    "sinch",
+    "bootstrap",
+    "theme",
+    "css",
+    "design-system",
+    "nectary",
+    "icons",
+    "bootstrap-5"
+  ],
+  "homepage": "https://github.com/sinchlabs/sinch-bootstrap-theme#readme",
+  "bugs": {
+    "url": "https://github.com/sinchlabs/sinch-bootstrap-theme/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sinchlabs/sinch-bootstrap-theme.git"
+  },
+  "license": "MIT",
+  "author": "Sinch Labs",
+  "main": "css/sinch-theme.css",
+  "style": "css/sinch-theme.css",
+  "sass": "css/sinch-variables.scss",
+  "files": [
+    "css/",
+    "icons/",
+    "animations/",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "peerDependencies": {
+    "bootstrap": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "bootstrap": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

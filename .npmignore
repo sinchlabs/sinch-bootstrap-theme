@@ -1,0 +1,21 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Development
+.github/
+.vscode/
+.idea/
+
+# Build artifacts
+node_modules/
+*.log
+*.tmp
+
+# Examples (users can see on GitHub)
+examples/
+
+# Source files not needed in package
+*.md
+!README.md
