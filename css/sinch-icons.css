@@ -1,0 +1,110 @@
+/**
+ * Sinch Icons CSS Helper
+ * Generated from @nectary/assets
+ * 
+ * Usage with sprite:
+ *   <svg class="sinch-icon"><use href="sinch-icons.svg#sinch-sms"></use></svg>
+ * 
+ * Usage with inline SVG:
+ *   Copy SVG from svg/ folder and add class="sinch-icon"
+ */
+
+/* Base icon styles */
+.sinch-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+/* Icon sizes */
+.sinch-icon-xs { width: 0.75rem; height: 0.75rem; }
+.sinch-icon-sm { width: 1rem; height: 1rem; }
+.sinch-icon-md { width: 1.5rem; height: 1.5rem; }
+.sinch-icon-lg { width: 2rem; height: 2rem; }
+.sinch-icon-xl { width: 3rem; height: 3rem; }
+.sinch-icon-2xl { width: 4rem; height: 4rem; }
+
+/* Fixed pixel sizes */
+.sinch-icon-16 { width: 16px; height: 16px; }
+.sinch-icon-24 { width: 24px; height: 24px; }
+.sinch-icon-32 { width: 32px; height: 32px; }
+.sinch-icon-48 { width: 48px; height: 48px; }
+.sinch-icon-64 { width: 64px; height: 64px; }
+
+/* Two-tone icon support (for branded icons with .accent class) */
+.sinch-icon .accent {
+    fill: var(--sinch-icon-accent, var(--sinch-honey-400, #FFBE3C));
+}
+
+/* Color variants */
+.sinch-icon-primary { fill: var(--sinch-tropical-700, #006063); }
+.sinch-icon-primary .accent { fill: var(--sinch-tropical-400, #00969C); }
+
+.sinch-icon-secondary { fill: var(--sinch-ocean-600, #0D68D1); }
+.sinch-icon-secondary .accent { fill: var(--sinch-ocean-400, #5BAAFF); }
+
+.sinch-icon-success { fill: var(--sinch-grass-500, #3B9D50); }
+.sinch-icon-success .accent { fill: var(--sinch-grass-300, #8EEAA0); }
+
+.sinch-icon-danger { fill: var(--sinch-raspberry-500, #C73535); }
+.sinch-icon-danger .accent { fill: var(--sinch-raspberry-300, #FF9999); }
+
+.sinch-icon-warning { fill: var(--sinch-pumpkin-500, #E56D24); }
+.sinch-icon-warning .accent { fill: var(--sinch-pumpkin-300, #FFB895); }
+
+.sinch-icon-info { fill: var(--sinch-ocean-500, #3089F0); }
+.sinch-icon-info .accent { fill: var(--sinch-ocean-300, #99CCFF); }
+
+.sinch-icon-dark { fill: var(--sinch-neutral-900, #1A2126); }
+.sinch-icon-dark .accent { fill: var(--sinch-neutral-500, #737F89); }
+
+.sinch-icon-light { fill: var(--sinch-neutral-400, #8D99A3); }
+.sinch-icon-light .accent { fill: var(--sinch-neutral-200, #D4D9DE); }
+
+.sinch-icon-white { fill: #FFFFFF; }
+.sinch-icon-white .accent { fill: rgba(255, 255, 255, 0.7); }
+
+.sinch-icon-cta { fill: var(--sinch-honey-400, #FFBE3C); }
+.sinch-icon-cta .accent { fill: var(--sinch-honey-600, #C78200); }
+
+/* Channel icon backgrounds (for circular channel icons) */
+.sinch-icon-channel {
+    border-radius: 50%;
+    padding: 0.25em;
+}
+
+.sinch-icon-channel-whatsapp { background: linear-gradient(180deg, #25d366 0%, #25d366 100%); }
+.sinch-icon-channel-facebook { background: #1877F2; }
+.sinch-icon-channel-messenger { background: linear-gradient(45deg, #09f 0%, #a033ff 45%, #ff5280 82%, #ff7061 100%); }
+.sinch-icon-channel-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.sinch-icon-channel-telegram { background: linear-gradient(180deg, #37AEE2 0%, #1E96C8 100%); }
+.sinch-icon-channel-viber { background: #7360F2; }
+.sinch-icon-channel-line { background: #00B900; }
+.sinch-icon-channel-wechat { background: #7BB32E; }
+.sinch-icon-channel-twitter { background: #1DA1F2; }
+.sinch-icon-channel-sms { background: var(--sinch-tropical-600, #008288); }
+.sinch-icon-channel-rcs { background: var(--sinch-ocean-500, #3089F0); }
+.sinch-icon-channel-voice { background: var(--sinch-violet-500, #7C4DFF); }
+
+/* Illustration styles */
+.sinch-illustration {
+    max-width: 100%;
+    height: auto;
+}
+
+.sinch-illustration-sm { max-width: 200px; }
+.sinch-illustration-md { max-width: 400px; }
+.sinch-illustration-lg { max-width: 600px; }
+
+/* Logo styles */
+.sinch-logo {
+    height: 2rem;
+    width: auto;
+}
+
+.sinch-logo-sm { height: 1.5rem; }
+.sinch-logo-md { height: 2.5rem; }
+.sinch-logo-lg { height: 3rem; }
+.sinch-logo-xl { height: 4rem; }

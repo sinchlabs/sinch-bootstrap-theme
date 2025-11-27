@@ -1,0 +1,191 @@
+/**
+ * Sinch Brand Design Tokens
+ * CSS Custom Properties based on Sinch Brand Guidelines
+ *
+ * Use these variables to maintain brand consistency across all web applications
+ */
+
+:root {
+  /* =========================================================================
+     PRIMARY COLORS (Sinch Brand Guidelines)
+     ========================================================================= */
+
+  /* Yellow - Primary CTA Color */
+  --sinch-yellow: #ffbe3c;
+  --sinch-yellow-mid: #ffcf6e;
+  --sinch-yellow-light: #ffdf9e;
+  --sinch-yellow-lightest: #fceccb;
+
+  /* Green - Hyperlinks, Success States */
+  --sinch-green-dark: #007171;
+  --sinch-green-vibrant: #059688;
+  --sinch-green-mid: #63b9a4;
+  --sinch-green-light: #a7d5c2;
+  --sinch-green-lightest: #dcede1;
+
+  /* Blue - Information, Secondary Actions */
+  --sinch-blue-vibrant: #3aa7ea;
+  --sinch-blue-mid: #6ebbee;
+  --sinch-blue-light: #a1d5f5;
+  --sinch-blue-lightest: #def2ff;
+
+  /* Red - Errors, Warnings */
+  --sinch-red-dark: #d13d42;
+  --sinch-red-vibrant: #ef5858;
+  --sinch-red-light: #ffb8b8;
+  --sinch-red-lightest: #ffe8e4;
+
+  /* =========================================================================
+     GREY SCALE
+     ========================================================================= */
+
+  --sinch-black: #000000;
+  --sinch-grey-dark: #595959;
+  --sinch-grey-mid: #cccccc;
+  --sinch-grey-light: #e0e0e0;
+  --sinch-grey-lighter: #f2f2f2;
+  --sinch-grey-lightest: #f8f8f8;
+  --sinch-white: #ffffff;
+
+  /* =========================================================================
+     SUPPORTING TONES
+     ========================================================================= */
+
+  --sinch-night-blue-dark: #0a273d;
+  --sinch-night-blue-mid: #1b3e65;
+
+  /* =========================================================================
+     SEMANTIC TOKENS (Usage-based)
+     ========================================================================= */
+
+  /* Typography */
+  --sinch-text-primary: var(--sinch-black);
+  --sinch-text-secondary: var(--sinch-grey-dark);
+  --sinch-text-disabled: var(--sinch-grey-mid);
+
+  /* Links */
+  --sinch-link-default: var(--sinch-green-vibrant);
+  --sinch-link-hover: var(--sinch-green-dark);
+
+  /* Backgrounds */
+  --sinch-bg-white: var(--sinch-white);
+  --sinch-bg-light: var(--sinch-grey-lightest);
+  --sinch-bg-lighter: var(--sinch-grey-lighter);
+
+  /* Borders */
+  --sinch-border-default: var(--sinch-grey-light);
+  --sinch-border-subtle: var(--sinch-grey-mid);
+
+  /* CTA (Call to Action) */
+  --sinch-cta-bg: var(--sinch-yellow);
+  --sinch-cta-bg-hover: var(--sinch-yellow-mid);
+  --sinch-cta-text: var(--sinch-black);
+
+  /* =========================================================================
+     TYPOGRAPHY
+     ========================================================================= */
+
+  --sinch-font-family: "DM Sans", Arial, sans-serif;
+  --sinch-font-family-mono: "DM Mono", monospace;
+
+  /* Font Weights */
+  --sinch-font-weight-regular: 400;
+  --sinch-font-weight-medium: 500;
+  --sinch-font-weight-bold: 700;
+
+  /* Font Sizes */
+  --sinch-font-size-h1: 50px;
+  --sinch-font-size-h2: 40px;
+  --sinch-font-size-h3: 30px;
+  --sinch-font-size-h4: 24px;
+  --sinch-font-size-h5: 18px;
+  --sinch-font-size-h6: 14px;
+  --sinch-font-size-body: 16px;
+  --sinch-font-size-small: 14px;
+
+  /* Line Heights */
+  --sinch-line-height-h1: 100%;
+  --sinch-line-height-h2: 105%;
+  --sinch-line-height-h3: 110%;
+  --sinch-line-height-h4: 110%;
+  --sinch-line-height-body: 135%;
+
+  /* Letter Spacing */
+  --sinch-letter-spacing-heading: -0.02em; /* -2% */
+  --sinch-letter-spacing-body: -0.01em;    /* -1% */
+  --sinch-letter-spacing-micro: 0.07em;    /* +7% for all-caps micro titles */
+
+  /* =========================================================================
+     SPACING & SIZING
+     ========================================================================= */
+
+  /* Border Radius (Always use rounded corners!) */
+  --sinch-radius-sm: 6px;
+  --sinch-radius-md: 10px;
+  --sinch-radius-lg: 14px;
+  --sinch-radius-full: 9999px;
+
+  /* Component Sizes */
+  --sinch-size-xs: 24px;
+  --sinch-size-sm: 32px;
+  --sinch-size-md: 40px;
+  --sinch-size-lg: 48px;
+
+  /* =========================================================================
+     SHADOWS
+     ========================================================================= */
+
+  --sinch-shadow-sm: 1px 2px 6px rgba(10, 39, 61, 0.1);
+  --sinch-shadow-md: 1px 4px 8px rgba(10, 39, 61, 0.1);
+  --sinch-shadow-lg: 1px 6px 12px rgba(10, 39, 61, 0.15);
+
+  /* =========================================================================
+     TRANSITIONS
+     ========================================================================= */
+
+  --sinch-transition-fast: 0.15s ease-in-out;
+  --sinch-transition-normal: 0.25s ease-in-out;
+  --sinch-transition-slow: 0.35s ease-in-out;
+}
+
+/* =========================================================================
+   UTILITY CLASSES
+   ========================================================================= */
+
+/* Typography Utilities */
+.sinch-text-primary { color: var(--sinch-text-primary); }
+.sinch-text-secondary { color: var(--sinch-text-secondary); }
+
+/* Link Colors */
+.sinch-link {
+  color: var(--sinch-link-default);
+  text-decoration: none;
+  transition: color var(--sinch-transition-fast);
+}
+
+.sinch-link:hover {
+  color: var(--sinch-link-hover);
+  text-decoration: underline;
+}
+
+/* Background Utilities */
+.sinch-bg-white { background-color: var(--sinch-bg-white); }
+.sinch-bg-light { background-color: var(--sinch-bg-light); }
+.sinch-bg-yellow { background-color: var(--sinch-yellow); }
+.sinch-bg-green { background-color: var(--sinch-green-vibrant); }
+.sinch-bg-blue { background-color: var(--sinch-blue-vibrant); }
+
+/* Border Utilities */
+.sinch-border { border: 1px solid var(--sinch-border-default); }
+.sinch-border-subtle { border: 1px solid var(--sinch-border-subtle); }
+
+/* Border Radius Utilities */
+.sinch-rounded-sm { border-radius: var(--sinch-radius-sm); }
+.sinch-rounded-md { border-radius: var(--sinch-radius-md); }
+.sinch-rounded-lg { border-radius: var(--sinch-radius-lg); }
+.sinch-rounded-full { border-radius: var(--sinch-radius-full); }
+
+/* Shadow Utilities */
+.sinch-shadow-sm { box-shadow: var(--sinch-shadow-sm); }
+.sinch-shadow-md { box-shadow: var(--sinch-shadow-md); }
+.sinch-shadow-lg { box-shadow: var(--sinch-shadow-lg); }

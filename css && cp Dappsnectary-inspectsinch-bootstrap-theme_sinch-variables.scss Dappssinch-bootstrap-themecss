@@ -1,0 +1,1076 @@
+/**
+ * ============================================================================
+ * Sinch Nectary Theme for Bootstrap 5
+ * Standalone CSS (use AFTER Bootstrap CSS)
+ * Based on @nectary/theme-base v5.10.x design tokens
+ * ============================================================================
+ * 
+ * Usage:
+ *   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ *   <link href="sinch-theme.css" rel="stylesheet">
+ */
+
+/* ============================================================================
+   FONTS - DM Sans & DM Mono from Sinch CDN
+   ============================================================================ */
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMSans-Regular"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMSans-Medium"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMSans-Bold"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: local("DMSans-Italic"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400-italic.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  src: local("DMSans-MediumItalic"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500-italic.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: local("DMSans-BoldItalic"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700-italic.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMMono-Regular"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Mono-400.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Mono-400.woff") format("woff");
+}
+
+/* Material Icons for icon system */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local("MaterialSymbolsRoundedFilled24pt-Regular"),
+       url("https://fonts.gstatic.com/s/materialsymbolsrounded/v109/syl0-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDJ_vb9vUSzq3wzLK-P0J-V_Zs-QtQth3-jOcbTCVpeRL2w5rwZu2rIelXxeJKJBiCa8.woff2") format("woff2");
+}
+
+/* ============================================================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================================ */
+
+:root {
+  /* -------------------------------------------------------------------------
+     Reference Colors (Primitive Tokens)
+     ------------------------------------------------------------------------- */
+  
+  /* Tropical (Primary/Teal) */
+  --sinch-tropical-50: #F0FAF4;
+  --sinch-tropical-100: #E2F0E8;
+  --sinch-tropical-200: #CEE5DA;
+  --sinch-tropical-300: #AFDBCD;
+  --sinch-tropical-350: #80CFBC;
+  --sinch-tropical-400: #51B8A6;
+  --sinch-tropical-500: #06998B;
+  --sinch-tropical-600: #007874;
+  --sinch-tropical-700: #006063;
+  --sinch-tropical-800: #0C333B;
+  --sinch-tropical-900: #0E2329;
+  
+  /* Honey (CTA/Yellow) */
+  --sinch-honey-50: #FFF9EB;
+  --sinch-honey-100: #FCECCB;
+  --sinch-honey-200: #FFDD99;
+  --sinch-honey-300: #FFCA61;
+  --sinch-honey-350: #FFBE3C;
+  --sinch-honey-400: #EB9605;
+  --sinch-honey-500: #C77904;
+  --sinch-honey-600: #9E5A00;
+  --sinch-honey-700: #824703;
+  --sinch-honey-800: #472706;
+  --sinch-honey-900: #331B06;
+  
+  /* Ocean (Info/Blue) */
+  --sinch-ocean-50: #F2F9FF;
+  --sinch-ocean-100: #E0F1FF;
+  --sinch-ocean-200: #C7E5FF;
+  --sinch-ocean-300: #A8D4FF;
+  --sinch-ocean-350: #8AC4FF;
+  --sinch-ocean-400: #61ABFF;
+  --sinch-ocean-500: #3089F0;
+  --sinch-ocean-600: #0D68D1;
+  --sinch-ocean-700: #1454A8;
+  --sinch-ocean-800: #112F57;
+  --sinch-ocean-900: #0F2138;
+  
+  /* Grass (Success/Green) */
+  --sinch-grass-50: #ECFFEB;
+  --sinch-grass-100: #D7F5D7;
+  --sinch-grass-200: #C2EDC5;
+  --sinch-grass-300: #99E0A2;
+  --sinch-grass-350: #77D486;
+  --sinch-grass-400: #53BD69;
+  --sinch-grass-500: #3D9956;
+  --sinch-grass-600: #2B7845;
+  --sinch-grass-700: #23613C;
+  --sinch-grass-800: #163323;
+  --sinch-grass-900: #102419;
+  
+  /* Raspberry (Danger/Red) */
+  --sinch-raspberry-50: #FFF6F5;
+  --sinch-raspberry-100: #FFE5E3;
+  --sinch-raspberry-200: #FFD8D6;
+  --sinch-raspberry-300: #FFBDBD;
+  --sinch-raspberry-350: #FFA8A8;
+  --sinch-raspberry-400: #FF8080;
+  --sinch-raspberry-500: #EB5454;
+  --sinch-raspberry-600: #BD3C41;
+  --sinch-raspberry-700: #993138;
+  --sinch-raspberry-800: #57181C;
+  --sinch-raspberry-900: #3D1215;
+  
+  /* Pumpkin (Warning/Orange) */
+  --sinch-pumpkin-50: #FFF7F0;
+  --sinch-pumpkin-100: #FFE9D6;
+  --sinch-pumpkin-200: #FFD9BD;
+  --sinch-pumpkin-300: #FFC299;
+  --sinch-pumpkin-350: #FFAD75;
+  --sinch-pumpkin-400: #F58B4E;
+  --sinch-pumpkin-500: #D66A33;
+  --sinch-pumpkin-600: #AD4E24;
+  --sinch-pumpkin-700: #8F3D1F;
+  --sinch-pumpkin-800: #4D2215;
+  --sinch-pumpkin-900: #361811;
+  
+  /* Violet (Purple) */
+  --sinch-violet-50: #F8F5FF;
+  --sinch-violet-100: #EFEBFF;
+  --sinch-violet-200: #E2DBFF;
+  --sinch-violet-300: #D0C8FA;
+  --sinch-violet-350: #C1B6FA;
+  --sinch-violet-400: #A89BFA;
+  --sinch-violet-500: #857AEB;
+  --sinch-violet-600: #645DC2;
+  --sinch-violet-700: #4D4AA8;
+  --sinch-violet-800: #2A2A54;
+  --sinch-violet-900: #1E1E33;
+  
+  /* Candy (Pink) */
+  --sinch-candy-50: #FFF5FC;
+  --sinch-candy-100: #FFE5F7;
+  --sinch-candy-200: #FFD6F3;
+  --sinch-candy-300: #FFBDEC;
+  --sinch-candy-350: #FAA5E3;
+  --sinch-candy-400: #EB83CF;
+  --sinch-candy-500: #D15CB4;
+  --sinch-candy-600: #A3488E;
+  --sinch-candy-700: #8A3778;
+  --sinch-candy-800: #472140;
+  --sinch-candy-900: #2E192A;
+  
+  /* Neutral (Gray) */
+  --sinch-neutral-50: #F7F9FA;
+  --sinch-neutral-100: #EBEEF0;
+  --sinch-neutral-200: #DCE2E5;
+  --sinch-neutral-300: #C9D1D6;
+  --sinch-neutral-350: #B7C1C7;
+  --sinch-neutral-400: #9EA9B0;
+  --sinch-neutral-500: #808A91;
+  --sinch-neutral-600: #626C73;
+  --sinch-neutral-700: #4B575E;
+  --sinch-neutral-800: #272F36;
+  --sinch-neutral-900: #1A2126;
+  --sinch-neutral-950: #14181C;
+  
+  /* -------------------------------------------------------------------------
+     System Colors (Semantic Tokens)
+     ------------------------------------------------------------------------- */
+  
+  /* Primary */
+  --sinch-primary: var(--sinch-tropical-700);
+  --sinch-primary-hover: var(--sinch-tropical-600);
+  --sinch-primary-active: var(--sinch-tropical-800);
+  --sinch-primary-disabled: var(--sinch-tropical-400);
+  
+  /* CTA (Call to Action) */
+  --sinch-cta: var(--sinch-honey-350);
+  --sinch-cta-hover: var(--sinch-honey-200);
+  --sinch-cta-active: var(--sinch-honey-300);
+  
+  /* Feedback Colors */
+  --sinch-danger: #D63F3F;
+  --sinch-danger-strong: var(--sinch-raspberry-700);
+  --sinch-danger-subtle: var(--sinch-raspberry-200);
+  
+  --sinch-success: var(--sinch-grass-400);
+  --sinch-success-strong: var(--sinch-grass-700);
+  --sinch-success-subtle: var(--sinch-grass-200);
+  
+  --sinch-warning: var(--sinch-pumpkin-400);
+  --sinch-warning-strong: var(--sinch-pumpkin-700);
+  --sinch-warning-subtle: var(--sinch-pumpkin-200);
+  
+  --sinch-info: var(--sinch-ocean-500);
+  --sinch-info-strong: var(--sinch-ocean-700);
+  --sinch-info-subtle: var(--sinch-ocean-200);
+  
+  /* Text Colors */
+  --sinch-text-default: var(--sinch-neutral-900);
+  --sinch-text-muted: var(--sinch-neutral-600);
+  --sinch-text-caption: var(--sinch-neutral-700);
+  --sinch-text-disabled: var(--sinch-neutral-400);
+  
+  /* Border Colors */
+  --sinch-border-default: var(--sinch-neutral-350);
+  --sinch-border-subtle: var(--sinch-neutral-200);
+  --sinch-border-strong: var(--sinch-neutral-400);
+  --sinch-border-disabled: var(--sinch-neutral-100);
+  
+  /* Surface Colors */
+  --sinch-surface-canvas: var(--sinch-neutral-100);
+  --sinch-surface-primary: #FFFFFF;
+  --sinch-surface-secondary: var(--sinch-neutral-50);
+  --sinch-surface-tertiary: var(--sinch-neutral-100);
+  
+  /* Focus */
+  --sinch-focus: var(--sinch-ocean-400);
+  
+  /* -------------------------------------------------------------------------
+     Typography
+     ------------------------------------------------------------------------- */
+  --sinch-font-family-main: "DM Sans", "Arial", sans-serif;
+  --sinch-font-family-mono: "DM Mono", monospace;
+  
+  /* -------------------------------------------------------------------------
+     Shape & Spacing
+     ------------------------------------------------------------------------- */
+  --sinch-radius-xs: 2px;
+  --sinch-radius-s: 6px;
+  --sinch-radius-m: 10px;
+  --sinch-radius-l: 14px;
+  --sinch-radius-full: 9999px;
+  
+  /* Component Sizes */
+  --sinch-size-xs: 24px;
+  --sinch-size-s: 32px;
+  --sinch-size-m: 40px;
+  --sinch-size-l: 48px;
+  
+  /* -------------------------------------------------------------------------
+     Shadows
+     ------------------------------------------------------------------------- */
+  --sinch-shadow-1: 1px 2px 6px rgba(10, 39, 61, 0.1);
+  --sinch-shadow-2: 1px 4px 8px rgba(10, 39, 61, 0.1);
+  --sinch-shadow-3: 1px 6px 12px rgba(10, 39, 61, 0.15);
+  --sinch-shadow-4: 0 8px 16px rgba(10, 39, 61, 0.1);
+  
+  /* -------------------------------------------------------------------------
+     Bootstrap Overrides
+     ------------------------------------------------------------------------- */
+  --bs-primary: var(--sinch-tropical-700);
+  --bs-primary-rgb: 0, 96, 99;
+  --bs-secondary: var(--sinch-ocean-600);
+  --bs-secondary-rgb: 13, 104, 209;
+  --bs-success: var(--sinch-grass-400);
+  --bs-success-rgb: 83, 189, 105;
+  --bs-info: var(--sinch-ocean-500);
+  --bs-info-rgb: 48, 137, 240;
+  --bs-warning: var(--sinch-pumpkin-400);
+  --bs-warning-rgb: 245, 139, 78;
+  --bs-danger: #D63F3F;
+  --bs-danger-rgb: 214, 63, 63;
+  --bs-light: var(--sinch-neutral-50);
+  --bs-light-rgb: 247, 249, 250;
+  --bs-dark: var(--sinch-neutral-900);
+  --bs-dark-rgb: 26, 33, 38;
+  
+  --bs-body-font-family: var(--sinch-font-family-main);
+  --bs-body-color: var(--sinch-text-default);
+  --bs-body-bg: #FFFFFF;
+  
+  --bs-border-radius: var(--sinch-radius-m);
+  --bs-border-radius-sm: var(--sinch-radius-s);
+  --bs-border-radius-lg: var(--sinch-radius-l);
+  --bs-border-radius-pill: var(--sinch-radius-full);
+  
+  --bs-border-color: var(--sinch-border-default);
+  
+  --bs-link-color: var(--sinch-primary);
+  --bs-link-hover-color: var(--sinch-primary-hover);
+}
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+
+body {
+  font-family: var(--sinch-font-family-main);
+  color: var(--sinch-text-default);
+}
+
+code, kbd, pre, samp {
+  font-family: var(--sinch-font-family-mono);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--sinch-font-family-main);
+  font-weight: 500;
+  color: var(--sinch-text-default);
+}
+
+a {
+  color: var(--sinch-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--sinch-primary-hover);
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+
+.btn {
+  font-family: var(--sinch-font-family-main);
+  font-weight: 700;
+  border-radius: var(--sinch-radius-m);
+  transition: all 0.15s ease-in-out;
+}
+
+.btn:focus,
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(97, 171, 255, 0.5);
+}
+
+.btn-sm {
+  border-radius: var(--sinch-radius-s);
+}
+
+.btn-lg {
+  border-radius: var(--sinch-radius-l);
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--sinch-primary);
+  border-color: var(--sinch-primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: var(--sinch-primary-hover);
+  border-color: var(--sinch-primary-hover);
+  color: #FFFFFF;
+}
+
+.btn-primary:active,
+.btn-primary.active {
+  background-color: var(--sinch-primary-active);
+  border-color: var(--sinch-primary-active);
+}
+
+.btn-primary:disabled {
+  background-color: var(--sinch-primary-disabled);
+  border-color: var(--sinch-primary-disabled);
+}
+
+/* Secondary/Outline Primary Button */
+.btn-outline-primary {
+  color: var(--sinch-primary);
+  border-color: var(--sinch-primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--sinch-primary);
+  border-color: var(--sinch-primary);
+  color: #FFFFFF;
+}
+
+/* CTA Button (Honey Yellow) - Custom class */
+.btn-cta {
+  background-color: var(--sinch-cta);
+  border-color: transparent;
+  color: var(--sinch-neutral-900);
+  font-weight: 700;
+}
+
+.btn-cta:hover {
+  background-color: var(--sinch-cta-hover);
+  border-color: transparent;
+  color: var(--sinch-neutral-900);
+}
+
+.btn-cta:active,
+.btn-cta.active {
+  background-color: var(--sinch-cta-active);
+}
+
+/* Danger Button */
+.btn-danger {
+  background-color: var(--sinch-danger);
+  border-color: var(--sinch-danger);
+}
+
+.btn-danger:hover {
+  background-color: var(--sinch-raspberry-600);
+  border-color: var(--sinch-raspberry-600);
+}
+
+/* Success Button */
+.btn-success {
+  background-color: var(--sinch-success);
+  border-color: var(--sinch-success);
+}
+
+.btn-success:hover {
+  background-color: var(--sinch-grass-500);
+  border-color: var(--sinch-grass-500);
+}
+
+/* Warning Button */
+.btn-warning {
+  background-color: var(--sinch-warning);
+  border-color: var(--sinch-warning);
+  color: var(--sinch-neutral-900);
+}
+
+.btn-warning:hover {
+  background-color: var(--sinch-pumpkin-500);
+  border-color: var(--sinch-pumpkin-500);
+  color: #FFFFFF;
+}
+
+/* Info Button */
+.btn-info {
+  background-color: var(--sinch-info);
+  border-color: var(--sinch-info);
+  color: #FFFFFF;
+}
+
+.btn-info:hover {
+  background-color: var(--sinch-ocean-600);
+  border-color: var(--sinch-ocean-600);
+  color: #FFFFFF;
+}
+
+/* Light Button */
+.btn-light {
+  background-color: var(--sinch-neutral-50);
+  border-color: var(--sinch-border-default);
+  color: var(--sinch-text-default);
+}
+
+.btn-light:hover {
+  background-color: var(--sinch-neutral-100);
+  border-color: var(--sinch-border-strong);
+}
+
+/* Dark Button */
+.btn-dark {
+  background-color: var(--sinch-neutral-900);
+  border-color: var(--sinch-neutral-900);
+}
+
+.btn-dark:hover {
+  background-color: var(--sinch-neutral-800);
+  border-color: var(--sinch-neutral-800);
+}
+
+/* ============================================================================
+   FORMS
+   ============================================================================ */
+
+.form-control,
+.form-select {
+  font-family: var(--sinch-font-family-main);
+  border-color: var(--sinch-border-default);
+  border-radius: var(--sinch-radius-m);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--sinch-primary-hover);
+  box-shadow: 0 0 0 3px rgba(97, 171, 255, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--sinch-neutral-400);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--sinch-text-default);
+}
+
+.form-text {
+  color: var(--sinch-text-muted);
+}
+
+.form-check-input:checked {
+  background-color: var(--sinch-primary);
+  border-color: var(--sinch-primary);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(97, 171, 255, 0.25);
+}
+
+.form-switch .form-check-input:checked {
+  background-color: var(--sinch-primary);
+}
+
+/* Invalid state */
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: var(--sinch-danger);
+}
+
+.form-control.is-invalid:focus,
+.was-validated .form-control:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(214, 63, 63, 0.25);
+}
+
+/* Valid state */
+.form-control.is-valid,
+.was-validated .form-control:valid {
+  border-color: var(--sinch-success);
+}
+
+.form-control.is-valid:focus,
+.was-validated .form-control:valid:focus {
+  box-shadow: 0 0 0 3px rgba(83, 189, 105, 0.25);
+}
+
+/* ============================================================================
+   CARDS
+   ============================================================================ */
+
+.card {
+  border-radius: var(--sinch-radius-l);
+  border-color: var(--sinch-border-subtle);
+  box-shadow: var(--sinch-shadow-1);
+}
+
+.card-header {
+  background-color: var(--sinch-surface-secondary);
+  border-bottom-color: var(--sinch-border-subtle);
+}
+
+.card-footer {
+  background-color: var(--sinch-surface-secondary);
+  border-top-color: var(--sinch-border-subtle);
+}
+
+/* ============================================================================
+   ALERTS
+   ============================================================================ */
+
+.alert {
+  border-radius: var(--sinch-radius-m);
+}
+
+.alert-primary {
+  background-color: var(--sinch-tropical-50);
+  border-color: var(--sinch-tropical-200);
+  color: var(--sinch-tropical-800);
+}
+
+.alert-secondary {
+  background-color: var(--sinch-ocean-50);
+  border-color: var(--sinch-ocean-200);
+  color: var(--sinch-ocean-800);
+}
+
+.alert-success {
+  background-color: var(--sinch-grass-100);
+  border-color: var(--sinch-grass-200);
+  color: var(--sinch-grass-800);
+}
+
+.alert-danger {
+  background-color: var(--sinch-raspberry-100);
+  border-color: var(--sinch-raspberry-200);
+  color: var(--sinch-raspberry-800);
+}
+
+.alert-warning {
+  background-color: var(--sinch-pumpkin-100);
+  border-color: var(--sinch-pumpkin-200);
+  color: var(--sinch-pumpkin-800);
+}
+
+.alert-info {
+  background-color: var(--sinch-ocean-100);
+  border-color: var(--sinch-ocean-200);
+  color: var(--sinch-ocean-800);
+}
+
+.alert-light {
+  background-color: var(--sinch-neutral-50);
+  border-color: var(--sinch-neutral-200);
+  color: var(--sinch-neutral-800);
+}
+
+.alert-dark {
+  background-color: var(--sinch-neutral-800);
+  border-color: var(--sinch-neutral-900);
+  color: var(--sinch-neutral-100);
+}
+
+/* ============================================================================
+   BADGES
+   ============================================================================ */
+
+.badge {
+  font-family: var(--sinch-font-family-main);
+  font-weight: 700;
+  border-radius: var(--sinch-radius-s);
+}
+
+.badge.rounded-pill {
+  border-radius: var(--sinch-radius-full);
+}
+
+.bg-primary {
+  background-color: var(--sinch-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--sinch-ocean-600) !important;
+}
+
+.bg-success {
+  background-color: var(--sinch-success) !important;
+}
+
+.bg-danger {
+  background-color: var(--sinch-danger) !important;
+}
+
+.bg-warning {
+  background-color: var(--sinch-warning) !important;
+}
+
+.bg-info {
+  background-color: var(--sinch-info) !important;
+}
+
+/* ============================================================================
+   NAVIGATION
+   ============================================================================ */
+
+.nav-link {
+  color: var(--sinch-text-muted);
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--sinch-primary);
+}
+
+.nav-link.active {
+  color: var(--sinch-primary);
+}
+
+.nav-tabs .nav-link {
+  border-radius: var(--sinch-radius-m) var(--sinch-radius-m) 0 0;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: var(--sinch-border-subtle) var(--sinch-border-subtle) #fff;
+}
+
+.nav-pills .nav-link {
+  border-radius: var(--sinch-radius-m);
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--sinch-primary);
+}
+
+/* ============================================================================
+   NAVBAR
+   ============================================================================ */
+
+.navbar {
+  font-family: var(--sinch-font-family-main);
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--sinch-text-muted);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: var(--sinch-primary);
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--sinch-primary);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #FFFFFF;
+}
+
+/* ============================================================================
+   DROPDOWNS
+   ============================================================================ */
+
+.dropdown-menu {
+  border-radius: var(--sinch-radius-m);
+  border-color: var(--sinch-border-subtle);
+  box-shadow: var(--sinch-shadow-2);
+}
+
+.dropdown-item {
+  font-family: var(--sinch-font-family-main);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--sinch-surface-secondary);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--sinch-primary);
+}
+
+/* ============================================================================
+   TABLES
+   ============================================================================ */
+
+.table {
+  font-family: var(--sinch-font-family-main);
+}
+
+.table > :not(caption) > * > * {
+  border-bottom-color: var(--sinch-border-subtle);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: var(--sinch-surface-secondary);
+}
+
+.table-hover > tbody > tr:hover > * {
+  background-color: var(--sinch-surface-tertiary);
+}
+
+.table-primary {
+  --bs-table-bg: var(--sinch-tropical-50);
+  --bs-table-border-color: var(--sinch-tropical-200);
+}
+
+.table-success {
+  --bs-table-bg: var(--sinch-grass-50);
+  --bs-table-border-color: var(--sinch-grass-200);
+}
+
+.table-danger {
+  --bs-table-bg: var(--sinch-raspberry-50);
+  --bs-table-border-color: var(--sinch-raspberry-200);
+}
+
+.table-warning {
+  --bs-table-bg: var(--sinch-pumpkin-50);
+  --bs-table-border-color: var(--sinch-pumpkin-200);
+}
+
+.table-info {
+  --bs-table-bg: var(--sinch-ocean-50);
+  --bs-table-border-color: var(--sinch-ocean-200);
+}
+
+/* ============================================================================
+   MODALS
+   ============================================================================ */
+
+.modal-content {
+  border-radius: var(--sinch-radius-l);
+  border-color: var(--sinch-border-subtle);
+}
+
+.modal-header {
+  border-bottom-color: var(--sinch-border-subtle);
+}
+
+.modal-footer {
+  border-top-color: var(--sinch-border-subtle);
+}
+
+/* ============================================================================
+   PAGINATION
+   ============================================================================ */
+
+.pagination {
+  font-family: var(--sinch-font-family-main);
+}
+
+.page-link {
+  color: var(--sinch-text-muted);
+  border-color: var(--sinch-border-subtle);
+}
+
+.page-link:hover {
+  color: var(--sinch-primary);
+  background-color: var(--sinch-surface-secondary);
+}
+
+.page-item.active .page-link {
+  background-color: var(--sinch-primary);
+  border-color: var(--sinch-primary);
+}
+
+.page-item:first-child .page-link {
+  border-radius: var(--sinch-radius-m) 0 0 var(--sinch-radius-m);
+}
+
+.page-item:last-child .page-link {
+  border-radius: 0 var(--sinch-radius-m) var(--sinch-radius-m) 0;
+}
+
+/* ============================================================================
+   PROGRESS
+   ============================================================================ */
+
+.progress {
+  border-radius: var(--sinch-radius-full);
+  background-color: var(--sinch-neutral-100);
+}
+
+.progress-bar {
+  background-color: var(--sinch-primary);
+}
+
+/* ============================================================================
+   ACCORDION
+   ============================================================================ */
+
+.accordion-item {
+  border-color: var(--sinch-border-subtle);
+}
+
+.accordion-item:first-of-type {
+  border-radius: var(--sinch-radius-m) var(--sinch-radius-m) 0 0;
+}
+
+.accordion-item:last-of-type {
+  border-radius: 0 0 var(--sinch-radius-m) var(--sinch-radius-m);
+}
+
+.accordion-button {
+  font-family: var(--sinch-font-family-main);
+  font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--sinch-tropical-50);
+  color: var(--sinch-primary);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(97, 171, 255, 0.25);
+}
+
+/* ============================================================================
+   TOOLTIPS & POPOVERS
+   ============================================================================ */
+
+.tooltip-inner {
+  background-color: var(--sinch-neutral-800);
+  border-radius: var(--sinch-radius-s);
+}
+
+.popover {
+  border-radius: var(--sinch-radius-m);
+  border-color: var(--sinch-border-subtle);
+  box-shadow: var(--sinch-shadow-2);
+}
+
+.popover-header {
+  background-color: var(--sinch-surface-secondary);
+  border-bottom-color: var(--sinch-border-subtle);
+}
+
+/* ============================================================================
+   TOASTS
+   ============================================================================ */
+
+.toast {
+  border-radius: var(--sinch-radius-m);
+  box-shadow: var(--sinch-shadow-3);
+}
+
+.toast-header {
+  border-bottom-color: var(--sinch-border-subtle);
+}
+
+/* ============================================================================
+   LIST GROUPS
+   ============================================================================ */
+
+.list-group-item {
+  border-color: var(--sinch-border-subtle);
+}
+
+.list-group-item:first-child {
+  border-radius: var(--sinch-radius-m) var(--sinch-radius-m) 0 0;
+}
+
+.list-group-item:last-child {
+  border-radius: 0 0 var(--sinch-radius-m) var(--sinch-radius-m);
+}
+
+.list-group-item.active {
+  background-color: var(--sinch-primary);
+  border-color: var(--sinch-primary);
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+  background-color: var(--sinch-surface-secondary);
+}
+
+/* ============================================================================
+   BREADCRUMB
+   ============================================================================ */
+
+.breadcrumb-item a {
+  color: var(--sinch-primary);
+}
+
+.breadcrumb-item.active {
+  color: var(--sinch-text-muted);
+}
+
+/* ============================================================================
+   SPINNERS
+   ============================================================================ */
+
+.spinner-border.text-primary {
+  color: var(--sinch-primary) !important;
+}
+
+.spinner-grow.text-primary {
+  color: var(--sinch-primary) !important;
+}
+
+/* ============================================================================
+   MATERIAL ICONS HELPER CLASS
+   ============================================================================ */
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================================
+   SINCH-SPECIFIC UTILITY CLASSES
+   ============================================================================ */
+
+/* Text colors */
+.text-sinch-primary { color: var(--sinch-primary) !important; }
+.text-sinch-tropical { color: var(--sinch-tropical-500) !important; }
+.text-sinch-honey { color: var(--sinch-honey-500) !important; }
+.text-sinch-ocean { color: var(--sinch-ocean-500) !important; }
+.text-sinch-grass { color: var(--sinch-grass-500) !important; }
+.text-sinch-raspberry { color: var(--sinch-raspberry-500) !important; }
+.text-sinch-pumpkin { color: var(--sinch-pumpkin-500) !important; }
+.text-sinch-violet { color: var(--sinch-violet-500) !important; }
+.text-sinch-candy { color: var(--sinch-candy-500) !important; }
+.text-sinch-muted { color: var(--sinch-text-muted) !important; }
+.text-sinch-caption { color: var(--sinch-text-caption) !important; }
+
+/* Background colors */
+.bg-sinch-primary { background-color: var(--sinch-primary) !important; }
+.bg-sinch-tropical { background-color: var(--sinch-tropical-500) !important; }
+.bg-sinch-tropical-light { background-color: var(--sinch-tropical-50) !important; }
+.bg-sinch-honey { background-color: var(--sinch-honey-350) !important; }
+.bg-sinch-honey-light { background-color: var(--sinch-honey-50) !important; }
+.bg-sinch-ocean { background-color: var(--sinch-ocean-500) !important; }
+.bg-sinch-ocean-light { background-color: var(--sinch-ocean-50) !important; }
+.bg-sinch-canvas { background-color: var(--sinch-surface-canvas) !important; }
+.bg-sinch-surface { background-color: var(--sinch-surface-secondary) !important; }
+
+/* Border colors */
+.border-sinch-primary { border-color: var(--sinch-primary) !important; }
+.border-sinch-subtle { border-color: var(--sinch-border-subtle) !important; }
+.border-sinch-default { border-color: var(--sinch-border-default) !important; }
+
+/* Shadow utilities */
+.shadow-sinch-1 { box-shadow: var(--sinch-shadow-1) !important; }
+.shadow-sinch-2 { box-shadow: var(--sinch-shadow-2) !important; }
+.shadow-sinch-3 { box-shadow: var(--sinch-shadow-3) !important; }
+.shadow-sinch-4 { box-shadow: var(--sinch-shadow-4) !important; }
+
+/* Border radius utilities */
+.rounded-sinch-xs { border-radius: var(--sinch-radius-xs) !important; }
+.rounded-sinch-s { border-radius: var(--sinch-radius-s) !important; }
+.rounded-sinch-m { border-radius: var(--sinch-radius-m) !important; }
+.rounded-sinch-l { border-radius: var(--sinch-radius-l) !important; }

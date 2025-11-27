@@ -1,0 +1,483 @@
+// ============================================================================
+// Sinch Nectary Theme for Bootstrap 5
+// Based on @nectary/theme-base design tokens
+// ============================================================================
+
+// ============================================================================
+// FONTS - DM Sans & DM Mono from Sinch CDN
+// ============================================================================
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMSans-Regular"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMSans-Medium"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMSans-Bold"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: local("DMSans-Italic"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400-italic.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-400-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  src: local("DMSans-MediumItalic"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500-italic.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-500-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: local("DMSans-BoldItalic"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700-italic.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Sans-700-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "DM Mono";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("DMMono-Regular"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Mono-400.woff2") format("woff2"),
+       url("https://d2vu40klajma73.cloudfront.net/DM-Mono-400.woff") format("woff");
+}
+
+// Material Icons for Nectary icon system
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local("MaterialSymbolsRoundedFilled24pt-Regular"),
+       url("https://fonts.gstatic.com/s/materialsymbolsrounded/v109/syl0-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDJ_vb9vUSzq3wzLK-P0J-V_Zs-QtQth3-jOcbTCVpeRL2w5rwZu2rIelXxeJKJBiCa8.woff2") format("woff2");
+}
+
+// ============================================================================
+// NECTARY REFERENCE COLORS (Primitive Tokens)
+// ============================================================================
+
+// Tropical (Primary/Teal)
+$sinch-tropical-50: #F0FAF4;
+$sinch-tropical-100: #E2F0E8;
+$sinch-tropical-200: #CEE5DA;
+$sinch-tropical-300: #AFDBCD;
+$sinch-tropical-350: #80CFBC;
+$sinch-tropical-400: #51B8A6;
+$sinch-tropical-500: #06998B;
+$sinch-tropical-600: #007874;
+$sinch-tropical-700: #006063;
+$sinch-tropical-800: #0C333B;
+$sinch-tropical-900: #0E2329;
+
+// Honey (CTA/Yellow)
+$sinch-honey-50: #FFF9EB;
+$sinch-honey-100: #FCECCB;
+$sinch-honey-200: #FFDD99;
+$sinch-honey-300: #FFCA61;
+$sinch-honey-350: #FFBE3C;
+$sinch-honey-400: #EB9605;
+$sinch-honey-500: #C77904;
+$sinch-honey-600: #9E5A00;
+$sinch-honey-700: #824703;
+$sinch-honey-800: #472706;
+$sinch-honey-900: #331B06;
+
+// Ocean (Info/Blue)
+$sinch-ocean-50: #F2F9FF;
+$sinch-ocean-100: #E0F1FF;
+$sinch-ocean-200: #C7E5FF;
+$sinch-ocean-300: #A8D4FF;
+$sinch-ocean-350: #8AC4FF;
+$sinch-ocean-400: #61ABFF;
+$sinch-ocean-500: #3089F0;
+$sinch-ocean-600: #0D68D1;
+$sinch-ocean-700: #1454A8;
+$sinch-ocean-800: #112F57;
+$sinch-ocean-900: #0F2138;
+
+// Grass (Success/Green)
+$sinch-grass-50: #ECFFEB;
+$sinch-grass-100: #D7F5D7;
+$sinch-grass-200: #C2EDC5;
+$sinch-grass-300: #99E0A2;
+$sinch-grass-350: #77D486;
+$sinch-grass-400: #53BD69;
+$sinch-grass-500: #3D9956;
+$sinch-grass-600: #2B7845;
+$sinch-grass-700: #23613C;
+$sinch-grass-800: #163323;
+$sinch-grass-900: #102419;
+
+// Raspberry (Danger/Red)
+$sinch-raspberry-50: #FFF6F5;
+$sinch-raspberry-100: #FFE5E3;
+$sinch-raspberry-200: #FFD8D6;
+$sinch-raspberry-300: #FFBDBD;
+$sinch-raspberry-350: #FFA8A8;
+$sinch-raspberry-400: #FF8080;
+$sinch-raspberry-500: #EB5454;
+$sinch-raspberry-600: #BD3C41;
+$sinch-raspberry-700: #993138;
+$sinch-raspberry-800: #57181C;
+$sinch-raspberry-900: #3D1215;
+
+// Pumpkin (Warning/Orange)
+$sinch-pumpkin-50: #FFF7F0;
+$sinch-pumpkin-100: #FFE9D6;
+$sinch-pumpkin-200: #FFD9BD;
+$sinch-pumpkin-300: #FFC299;
+$sinch-pumpkin-350: #FFAD75;
+$sinch-pumpkin-400: #F58B4E;
+$sinch-pumpkin-500: #D66A33;
+$sinch-pumpkin-600: #AD4E24;
+$sinch-pumpkin-700: #8F3D1F;
+$sinch-pumpkin-800: #4D2215;
+$sinch-pumpkin-900: #361811;
+
+// Violet (Purple)
+$sinch-violet-50: #F8F5FF;
+$sinch-violet-100: #EFEBFF;
+$sinch-violet-200: #E2DBFF;
+$sinch-violet-300: #D0C8FA;
+$sinch-violet-350: #C1B6FA;
+$sinch-violet-400: #A89BFA;
+$sinch-violet-500: #857AEB;
+$sinch-violet-600: #645DC2;
+$sinch-violet-700: #4D4AA8;
+$sinch-violet-800: #2A2A54;
+$sinch-violet-900: #1E1E33;
+
+// Candy (Pink)
+$sinch-candy-50: #FFF5FC;
+$sinch-candy-100: #FFE5F7;
+$sinch-candy-200: #FFD6F3;
+$sinch-candy-300: #FFBDEC;
+$sinch-candy-350: #FAA5E3;
+$sinch-candy-400: #EB83CF;
+$sinch-candy-500: #D15CB4;
+$sinch-candy-600: #A3488E;
+$sinch-candy-700: #8A3778;
+$sinch-candy-800: #472140;
+$sinch-candy-900: #2E192A;
+
+// Neutral (Gray)
+$sinch-neutral-50: #F7F9FA;
+$sinch-neutral-100: #EBEEF0;
+$sinch-neutral-200: #DCE2E5;
+$sinch-neutral-300: #C9D1D6;
+$sinch-neutral-350: #B7C1C7;
+$sinch-neutral-400: #9EA9B0;
+$sinch-neutral-500: #808A91;
+$sinch-neutral-600: #626C73;
+$sinch-neutral-700: #4B575E;
+$sinch-neutral-800: #272F36;
+$sinch-neutral-900: #1A2126;
+$sinch-neutral-950: #14181C;
+
+// ============================================================================
+// BOOTSTRAP COLOR MAPPINGS
+// ============================================================================
+
+// Primary: Tropical (Teal) - Sinch brand color
+$primary: $sinch-tropical-700;
+
+// Secondary: Ocean (Blue)
+$secondary: $sinch-ocean-600;
+
+// Success: Grass (Green)
+$success: $sinch-grass-400;
+
+// Info: Ocean (Blue)
+$info: $sinch-ocean-500;
+
+// Warning: Pumpkin (Orange)
+$warning: $sinch-pumpkin-400;
+
+// Danger: Raspberry (Red) - using Nectary's feedback danger
+$danger: #D63F3F;
+
+// Light/Dark
+$light: $sinch-neutral-50;
+$dark: $sinch-neutral-900;
+
+// Body colors
+$body-bg: #FFFFFF;
+$body-color: $sinch-neutral-900;
+
+// ============================================================================
+// TYPOGRAPHY
+// ============================================================================
+
+$font-family-sans-serif: "DM Sans", "Arial", sans-serif;
+$font-family-monospace: "DM Mono", monospace;
+$font-family-base: $font-family-sans-serif;
+
+// Font sizes (matching Nectary)
+$font-size-base: 1rem; // 16px
+$font-size-sm: 0.875rem; // 14px
+$font-size-lg: 1.125rem; // 18px
+
+$h1-font-size: 2.5rem; // 40px
+$h2-font-size: 1.5rem; // 24px
+$h3-font-size: 1.25rem; // 20px
+$h4-font-size: 1rem; // 16px
+$h5-font-size: 0.875rem; // 14px
+$h6-font-size: 0.75rem; // 12px
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line heights (from Nectary)
+$line-height-base: 1.5; // 24px at 16px
+$line-height-sm: 1.375; // ~22px at 16px
+$line-height-lg: 1.75;
+
+// Headings
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 500;
+$headings-color: $sinch-neutral-900;
+$headings-margin-bottom: 0.5rem;
+
+// ============================================================================
+// SPACING & SIZING (Nectary system sizes)
+// ============================================================================
+
+$spacer: 1rem;
+
+// Component sizes from Nectary
+$sinch-size-xs: 24px;
+$sinch-size-s: 32px;
+$sinch-size-m: 40px;
+$sinch-size-l: 48px;
+
+// ============================================================================
+// BORDER RADIUS (Nectary shape-radius)
+// ============================================================================
+
+$border-radius: 10px; // sinch-sys-shape-radius-m
+$border-radius-sm: 6px; // sinch-sys-shape-radius-s
+$border-radius-lg: 14px; // sinch-sys-shape-radius-l
+$border-radius-xl: 14px;
+$border-radius-pill: 9999px; // sinch-sys-shape-radius-full
+
+// ============================================================================
+// SHADOWS (Nectary shadow levels)
+// ============================================================================
+
+$box-shadow-sm: 1px 2px 6px rgba(10, 39, 61, 0.1); // level-1
+$box-shadow: 1px 4px 8px rgba(10, 39, 61, 0.1); // level-2
+$box-shadow-lg: 1px 6px 12px rgba(10, 39, 61, 0.15); // level-3
+
+// ============================================================================
+// BORDERS
+// ============================================================================
+
+$border-width: 1px;
+$border-color: $sinch-neutral-350; // sinch-sys-color-border-default
+
+// ============================================================================
+// LINKS
+// ============================================================================
+
+$link-color: $sinch-tropical-700;
+$link-hover-color: $sinch-tropical-600;
+$link-decoration: none;
+$link-hover-decoration: underline;
+
+// ============================================================================
+// FOCUS
+// ============================================================================
+
+$focus-ring-color: $sinch-ocean-400; // sinch-sys-color-focus
+$focus-ring-width: 3px;
+$focus-ring-opacity: 0.5;
+
+// ============================================================================
+// BUTTONS
+// ============================================================================
+
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 1rem;
+$btn-font-weight: 700;
+$btn-border-radius: $border-radius;
+
+$btn-padding-y-sm: 0.375rem;
+$btn-padding-x-sm: 0.75rem;
+$btn-border-radius-sm: $border-radius-sm;
+
+$btn-padding-y-lg: 0.75rem;
+$btn-padding-x-lg: 1.5rem;
+$btn-border-radius-lg: $border-radius-lg;
+
+// Button focus
+$btn-focus-box-shadow: 0 0 0 3px rgba($sinch-ocean-400, 0.5);
+
+// ============================================================================
+// FORMS
+// ============================================================================
+
+$input-bg: #FFFFFF;
+$input-border-color: $sinch-neutral-350;
+$input-border-radius: $border-radius;
+$input-focus-border-color: $sinch-tropical-600;
+$input-focus-box-shadow: 0 0 0 3px rgba($sinch-ocean-400, 0.25);
+$input-placeholder-color: $sinch-neutral-400;
+
+$form-check-input-checked-bg-color: $sinch-tropical-700;
+$form-check-input-checked-border-color: $sinch-tropical-700;
+
+$form-select-border-radius: $border-radius;
+
+// ============================================================================
+// CARDS
+// ============================================================================
+
+$card-border-radius: $border-radius-lg;
+$card-border-color: $sinch-neutral-200;
+$card-cap-bg: $sinch-neutral-50;
+
+// ============================================================================
+// ALERTS
+// ============================================================================
+
+$alert-border-radius: $border-radius;
+$alert-padding-y: 1rem;
+$alert-padding-x: 1rem;
+
+// ============================================================================
+// BADGES
+// ============================================================================
+
+$badge-border-radius: $border-radius-sm;
+$badge-font-weight: 700;
+$badge-padding-y: 0.35em;
+$badge-padding-x: 0.65em;
+
+// ============================================================================
+// MODALS
+// ============================================================================
+
+$modal-content-border-radius: $border-radius-lg;
+$modal-header-border-color: $sinch-neutral-200;
+$modal-footer-border-color: $sinch-neutral-200;
+
+// ============================================================================
+// NAVS & TABS
+// ============================================================================
+
+$nav-link-color: $sinch-neutral-700;
+$nav-link-hover-color: $sinch-tropical-700;
+$nav-tabs-border-radius: $border-radius;
+$nav-tabs-link-active-color: $sinch-tropical-700;
+$nav-tabs-link-active-border-color: $sinch-neutral-200 $sinch-neutral-200 #FFFFFF;
+
+// ============================================================================
+// NAVBAR
+// ============================================================================
+
+$navbar-light-color: $sinch-neutral-700;
+$navbar-light-hover-color: $sinch-tropical-700;
+$navbar-light-active-color: $sinch-tropical-700;
+
+$navbar-dark-color: rgba(255, 255, 255, 0.85);
+$navbar-dark-hover-color: #FFFFFF;
+$navbar-dark-active-color: #FFFFFF;
+
+// ============================================================================
+// DROPDOWNS
+// ============================================================================
+
+$dropdown-border-radius: $border-radius;
+$dropdown-border-color: $sinch-neutral-200;
+$dropdown-link-hover-bg: $sinch-neutral-50;
+$dropdown-link-active-bg: $sinch-tropical-700;
+
+// ============================================================================
+// TABLES
+// ============================================================================
+
+$table-striped-bg: $sinch-neutral-50;
+$table-hover-bg: $sinch-neutral-100;
+$table-border-color: $sinch-neutral-200;
+
+// ============================================================================
+// PAGINATION
+// ============================================================================
+
+$pagination-border-radius: $border-radius;
+$pagination-active-bg: $sinch-tropical-700;
+$pagination-active-border-color: $sinch-tropical-700;
+
+// ============================================================================
+// PROGRESS
+// ============================================================================
+
+$progress-border-radius: $border-radius;
+$progress-bar-bg: $sinch-tropical-700;
+
+// ============================================================================
+// TOASTS
+// ============================================================================
+
+$toast-border-radius: $border-radius;
+
+// ============================================================================
+// ACCORDION
+// ============================================================================
+
+$accordion-border-radius: $border-radius;
+$accordion-button-active-bg: $sinch-tropical-50;
+$accordion-button-active-color: $sinch-tropical-700;
+
+// ============================================================================
+// TOOLTIPS
+// ============================================================================
+
+$tooltip-border-radius: $border-radius-sm;
+$tooltip-bg: $sinch-neutral-800;
+
+// ============================================================================
+// POPOVERS
+// ============================================================================
+
+$popover-border-radius: $border-radius;
+$popover-border-color: $sinch-neutral-200;
