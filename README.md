@@ -2,10 +2,9 @@
 
 > A production-ready Bootstrap 5 theme based on Sinch's official brand guidelines and Nectary Design System.
 
-[![npm version](https://img.shields.io/npm/v/@sinchlabs/bootstrap-theme.svg)](https://www.npmjs.com/package/@sinchlabs/bootstrap-theme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3+-purple.svg)](https://getbootstrap.com)
-[![CDN](https://img.shields.io/badge/CDN-jsDelivr-orange.svg)](https://www.jsdelivr.com/package/gh/sinchlabs/sinch-bootstrap-theme)
+[![GitHub Pages](https://img.shields.io/badge/Demo-GitHub%20Pages-blue.svg)](https://sinchlabs.github.io/sinch-bootstrap-theme/)
 
 ## Features
 
@@ -15,16 +14,16 @@
 - ✅ **114 Illustrations** - SVG illustrations for marketing and product
 - ✅ **Animated Logo** - Lottie animation with simple JavaScript player
 - ✅ **Bootstrap 5.3+ Compatible** - Drop-in replacement for default Bootstrap theme
-- ✅ **CDN Ready** - Use via jsDelivr without any build step
+- ✅ **CDN Ready** - Use via jsDelivr (GitHub) without any build step
 - ✅ **Accessibility** - WCAG AA compliant color contrasts
 
 ---
 
 ## Quick Start
 
-### Option 1: CDN (Recommended)
+### Option 1: CDN via jsDelivr (Recommended)
 
-Add these lines to your HTML:
+jsDelivr can serve files directly from GitHub repositories. Add these lines to your HTML:
 
 ```html
 <!DOCTYPE html>
@@ -37,8 +36,8 @@ Add these lines to your HTML:
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Sinch Theme (includes icons) -->
-  <link href="https://cdn.jsdelivr.net/gh/sinchlabs/sinch-bootstrap-theme@latest/css/sinch-theme.css" rel="stylesheet">
+  <!-- Sinch Theme via jsDelivr (GitHub) -->
+  <link href="https://cdn.jsdelivr.net/gh/sinchlabs/sinch-bootstrap-theme@master/css/sinch-theme.css" rel="stylesheet">
 </head>
 <body>
   <div class="container mt-5">
@@ -52,42 +51,9 @@ Add these lines to your HTML:
 </html>
 ```
 
-### Option 2: NPM (Recommended for Projects)
+> **Note:** The `@master` in the URL refers to the GitHub branch. You can also use a specific commit hash or tag for versioning.
 
-```bash
-npm install @sinchlabs/bootstrap-theme
-```
-
-**With bundlers (webpack, vite, parcel, etc.):**
-
-```javascript
-// In your main JS/TS file
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@sinchlabs/bootstrap-theme/css/sinch-theme.css';
-```
-
-**With SCSS:**
-
-```scss
-// Import Sinch variables BEFORE Bootstrap
-@import '@sinchlabs/bootstrap-theme/css/sinch-variables.scss';
-
-// Then import Bootstrap
-@import 'bootstrap/scss/bootstrap';
-```
-
-**Programmatic access to assets:**
-
-```javascript
-const sinchTheme = require('@sinchlabs/bootstrap-theme');
-
-// Get paths to assets
-console.log(sinchTheme.css);           // Path to main CSS
-console.log(sinchTheme.iconSprite);    // Path to icon sprite
-console.log(sinchTheme.getIconPath('sinch-sms')); // Path to specific icon
-```
-
-### Option 3: Download/Clone
+### Option 2: Download/Clone
 
 ```bash
 # Clone or download this repo
@@ -108,7 +74,7 @@ Then reference locally:
 
 ## What's Included
 
-```
+```text
 sinch-bootstrap-theme/
 ├── css/
 │   ├── sinch-theme.css           # Complete Bootstrap theme (34KB)
@@ -118,17 +84,15 @@ sinch-bootstrap-theme/
 ├── icons/
 │   ├── sinch-icons.svg            # SVG sprite (201 icons)
 │   ├── icon-index.json            # Icon catalog
-│   ├── svg/                       # Individual icon SVG files
-│   │   ├── sinch-*.svg            # 125 branded icons
-│   │   ├── channel-*.svg          # 38 channel icons
-│   │   └── logo-*.svg             # 38 product logos
+│   ├── branded/                   # Branded icon SVG files
+│   ├── channel/                   # Channel icon SVG files
+│   ├── logos/                     # Product logo SVG files
 │   ├── illustrations/             # 114 marketing illustrations
 │   └── ICONS.md                   # Icon usage guide
 ├── animations/
 │   ├── sinch-logo.json            # Lottie animation data
 │   └── sinch-logo-player.js       # Simple animation player
-├── examples/
-│   └── index.html                 # Live demo page
+├── index.html                     # Live demo page
 └── README.md
 ```
 
@@ -160,7 +124,7 @@ sinch-bootstrap-theme/
 ```html
 <!-- Use icons from the sprite -->
 <svg class="sinch-icon sinch-icon-32">
-  <use href="https://cdn.jsdelivr.net/gh/sinchlabs/sinch-bootstrap-theme@latest/icons/sinch-icons.svg#sinch-sms"></use>
+  <use href="https://cdn.jsdelivr.net/gh/sinchlabs/sinch-bootstrap-theme@master/icons/sinch-icons.svg#sinch-sms"></use>
 </svg>
 
 <!-- With color variants -->
@@ -201,7 +165,7 @@ Download individual icons from `icons/svg/` and use directly:
 ```html
 <div id="sinch-logo"></div>
 
-<script src="https://cdn.jsdelivr.net/gh/sinchlabs/sinch-bootstrap-theme@latest/animations/sinch-logo-player.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sinchlabs/sinch-bootstrap-theme@master/animations/sinch-logo-player.js"></script>
 <script>
   SinchLogo.play('#sinch-logo', {
     width: 240,
@@ -322,7 +286,7 @@ This theme follows the official Sinch brand guidelines:
 - **Icons**: Filled style (not outlined)
 - **Letter Spacing**: -2% for headings, -1% for body
 
-For complete brand guidelines, visit: https://brand.sinch.com
+For complete brand guidelines, visit: <https://brand.sinch.com>
 
 ---
 
@@ -339,12 +303,15 @@ Same as Bootstrap 5:
 ## Icon Catalog
 
 ### Branded Icons (125 icons)
+
 `sinch-sms`, `sinch-chat`, `sinch-voice`, `sinch-webhook`, `sinch-developer`, `sinch-api`, etc.
 
 ### Channel Icons (38 icons)
+
 `channel-whatsapp`, `channel-facebook-messenger`, `channel-telegram`, `channel-instagram`, `channel-viber`, `channel-line`, `channel-wechat`, `channel-rcs`, etc.
 
 ### Product Logos (38 logos)
+
 `logo-sinch-icon`, `logo-sinch-icon-wordmark`, `logo-engage-icon`, `logo-chatlayer-icon`, `logo-mailgun-icon`, etc.
 
 See `icons/icon-index.json` for complete catalog.
@@ -407,20 +374,21 @@ This theme is based on Sinch's official brand guidelines. The Nectary design sys
 
 ## Resources
 
-- **Sinch Brand Guidelines**: https://brand.sinch.com
-- **Bootstrap Documentation**: https://getbootstrap.com/docs/5.3/
+- **Sinch Brand Guidelines**: <https://brand.sinch.com>
+- **Bootstrap Documentation**: <https://getbootstrap.com/docs/5.3/>
 - **Icon Library**: See [icons/ICONS.md](icons/ICONS.md)
-- **Live Demo**: [examples/index.html](examples/index.html)
+- **Live Demo**: <https://sinchlabs.github.io/sinch-bootstrap-theme/>
 
 ---
 
 ## Support
 
 For questions or issues:
-- **GitHub Issues**: https://github.com/sinchlabs/sinch-bootstrap-theme/issues
-- **Sinch Developer Portal**: https://developers.sinch.com
-- **Brand Guidelines Contact**: ben.fitter-harding@sinch.com
+
+- **GitHub Issues**: <https://github.com/sinchlabs/sinch-bootstrap-theme/issues>
+- **Sinch Developer Portal**: <https://developers.sinch.com>
+- **Brand Guidelines Contact**: <ben.fitter-harding@sinch.com>
 
 ---
 
-**Made with ❤️ by Sinch Labs**
+Made with love by Sinch Labs
