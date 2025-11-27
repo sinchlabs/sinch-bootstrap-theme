@@ -38,17 +38,21 @@ module.exports = {
   // Path to icon CSS
   icons: path.join(__dirname, 'css', 'sinch-icons.css'),
 
-  // Path to icon sprite
-  iconSprite: path.join(__dirname, 'icons', 'sinch-icons.svg'),
-
   // Path to icon index
   iconIndex: path.join(__dirname, 'icons', 'icon-index.json'),
 
-  // Path to illustrations directory
-  illustrations: path.join(__dirname, 'icons', 'illustrations'),
+  // Icon directories (new structure without prefixes)
+  iconDirs: {
+    branded: path.join(__dirname, 'icons', 'branded'),
+    channel: path.join(__dirname, 'icons', 'channel'),
+    logos: path.join(__dirname, 'icons', 'logos'),
+    illustrations: path.join(__dirname, 'icons', 'illustrations')
+  },
 
-  // Path to individual SVG icons
+  // Legacy paths (kept for backwards compatibility)
+  iconSprite: path.join(__dirname, 'icons', 'sinch-icons.svg'),
   svgIcons: path.join(__dirname, 'icons', 'svg'),
+  illustrations: path.join(__dirname, 'icons', 'illustrations'),
 
   // Path to logo animation
   logoAnimation: path.join(__dirname, 'animations', 'sinch-logo.json'),
@@ -56,9 +60,37 @@ module.exports = {
   // Path to logo player
   logoPlayer: path.join(__dirname, 'animations', 'sinch-logo-player.js'),
 
-  // Helper to get icon path
-  getIconPath: (iconName) => path.join(__dirname, 'icons', 'svg', `${iconName}.svg`),
+  // Helper to get branded icon path (new structure)
+  getBrandedIcon: (name) => path.join(__dirname, 'icons', 'branded', `${name}.svg`),
 
-  // Helper to get illustration path
-  getIllustrationPath: (name) => path.join(__dirname, 'icons', 'illustrations', `illustration-${name}.svg`)
+  // Helper to get channel icon path (new structure)
+  getChannelIcon: (name) => path.join(__dirname, 'icons', 'channel', `${name}.svg`),
+
+  // Helper to get logo path (new structure)
+  getLogo: (name) => path.join(__dirname, 'icons', 'logos', `${name}.svg`),
+
+  // Helper to get illustration path (new structure)
+  getIllustration: (name) => path.join(__dirname, 'icons', 'illustrations', `${name}.svg`),
+
+  // Legacy helpers (kept for backwards compatibility)
+  getIconPath: (iconName) => {
+    // Try new structure first
+    if (iconName.startsWith('sinch-')) {
+      return path.join(__dirname, 'icons', 'branded', iconName.replace('sinch-', '') + '.svg');
+    }
+    if (iconName.startsWith('channel-')) {
+      return path.join(__dirname, 'icons', 'channel', iconName.replace('channel-', '') + '.svg');
+    }
+    if (iconName.startsWith('logo-')) {
+      return path.join(__dirname, 'icons', 'logos', iconName.replace('logo-', '') + '.svg');
+    }
+    // Fall back to old svg folder
+    return path.join(__dirname, 'icons', 'svg', `${iconName}.svg`);
+  },
+
+  getIllustrationPath: (name) => {
+    // Handle both old and new naming
+    const cleanName = name.startsWith('illustration-') ? name.replace('illustration-', '') : name;
+    return path.join(__dirname, 'icons', 'illustrations', `${cleanName}.svg`);
+  }
 };

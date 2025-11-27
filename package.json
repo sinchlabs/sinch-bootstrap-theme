@@ -27,14 +27,23 @@
   "sass": "css/sinch-variables.scss",
   "files": [
     "css/",
-    "icons/",
+    "fonts/",
+    "icons/branded/",
+    "icons/channel/",
+    "icons/logos/",
+    "icons/illustrations/",
+    "icons/svg/",
+    "icons/sinch-icons.svg",
+    "icons/icon-index.json",
+    "icons/ICONS.md",
     "animations/",
     "index.js",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "echo \"No tests specified\" && exit 0",
+    "build:icons": "node scripts/prepare-icons-for-font.js && node scripts/generate-font.mjs"
   },
   "peerDependencies": {
     "bootstrap": ">=5.0.0"
@@ -46,5 +55,9 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "fantasticon": "^3.0.0",
+    "svgtofont": "^6.5.0"
   }
 }

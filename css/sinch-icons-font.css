@@ -1,0 +1,255 @@
+/**
+ * Sinch Icons Font
+ * 201 icons for Sinch brand, channels, and product logos
+ *
+ * Usage:
+ *   <i class="si-sms"></i>
+ *   <i class="si-channel-whatsapp" style="color: #25D366;"></i>
+ *   <i class="si-logo-sinch-icon"></i>
+ *
+ * Size classes:
+ *   si-xs, si-sm, si-lg, si-xl, si-2x, si-3x, si-4x, si-5x
+ */
+
+@font-face {
+  font-family: "sinch-icons";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('../fonts/sinch-icons.woff2') format('woff2'),
+       url('../fonts/sinch-icons.woff') format('woff'),
+       url('../fonts/sinch-icons.ttf') format('truetype');
+}
+
+[class^="si-"], [class*=" si-"] {
+  font-family: 'sinch-icons' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Size variants */
+.si-xs { font-size: 0.75em; }
+.si-sm { font-size: 0.875em; }
+.si-lg { font-size: 1.25em; }
+.si-xl { font-size: 1.5em; }
+.si-2x { font-size: 2em; }
+.si-3x { font-size: 3em; }
+.si-4x { font-size: 4em; }
+.si-5x { font-size: 5em; }
+
+/* Fixed width for alignment in lists */
+.si-fw {
+  width: 1.25em;
+  text-align: center;
+}
+
+
+.si-5g-readiness::before { content: "\ea01"; }
+.si-abcd::before { content: "\ea02"; }
+.si-ai::before { content: "\ea03"; }
+.si-airplane::before { content: "\ea04"; }
+.si-announcement::before { content: "\ea05"; }
+.si-barchart-down::before { content: "\ea06"; }
+.si-barchart-up::before { content: "\ea07"; }
+.si-bell-notification::before { content: "\ea08"; }
+.si-bell-off::before { content: "\ea09"; }
+.si-bell::before { content: "\ea0a"; }
+.si-billing::before { content: "\ea0b"; }
+.si-boat::before { content: "\ea0c"; }
+.si-book::before { content: "\ea0d"; }
+.si-calendar::before { content: "\ea0e"; }
+.si-call-and-verified::before { content: "\ea0f"; }
+.si-call::before { content: "\ea10"; }
+.si-calling-api::before { content: "\ea11"; }
+.si-campaigns::before { content: "\ea12"; }
+.si-car::before { content: "\ea13"; }
+.si-channel-apple-business-chat-square::before { content: "\ea14"; }
+.si-channel-apple-business-chat::before { content: "\ea15"; }
+.si-channel-facebook-messenger-square::before { content: "\ea16"; }
+.si-channel-facebook-messenger::before { content: "\ea17"; }
+.si-channel-facebook-square::before { content: "\ea18"; }
+.si-channel-facebook::before { content: "\ea19"; }
+.si-channel-google-business-square::before { content: "\ea1a"; }
+.si-channel-google-business::before { content: "\ea1b"; }
+.si-channel-instagram-square::before { content: "\ea1c"; }
+.si-channel-instagram::before { content: "\ea1d"; }
+.si-channel-line-square::before { content: "\ea1e"; }
+.si-channel-line::before { content: "\ea1f"; }
+.si-channel-mms-round::before { content: "\ea20"; }
+.si-channel-mms-square::before { content: "\ea21"; }
+.si-channel-notify-square::before { content: "\ea22"; }
+.si-channel-notify::before { content: "\ea23"; }
+.si-channel-phone-round::before { content: "\ea24"; }
+.si-channel-phone-square::before { content: "\ea25"; }
+.si-channel-push-round::before { content: "\ea26"; }
+.si-channel-push-square::before { content: "\ea27"; }
+.si-channel-rcs-round::before { content: "\ea28"; }
+.si-channel-rcs-square::before { content: "\ea29"; }
+.si-channel-sms-round::before { content: "\ea2a"; }
+.si-channel-sms-square::before { content: "\ea2b"; }
+.si-channel-talk-square::before { content: "\ea2c"; }
+.si-channel-talk::before { content: "\ea2d"; }
+.si-channel-telegram-square::before { content: "\ea2e"; }
+.si-channel-telegram::before { content: "\ea2f"; }
+.si-channel-twitter-square::before { content: "\ea30"; }
+.si-channel-twitter::before { content: "\ea31"; }
+.si-channel-viber-square::before { content: "\ea32"; }
+.si-channel-viber::before { content: "\ea33"; }
+.si-channel-webchat-round::before { content: "\ea34"; }
+.si-channel-webchat-square::before { content: "\ea35"; }
+.si-channel-wechat-square::before { content: "\ea36"; }
+.si-channel-wechat::before { content: "\ea37"; }
+.si-channel-whatsapp-square::before { content: "\ea38"; }
+.si-channel-whatsapp::before { content: "\ea39"; }
+.si-channels::before { content: "\ea3a"; }
+.si-chat-message::before { content: "\ea3b"; }
+.si-chat::before { content: "\ea3c"; }
+.si-chatbot::before { content: "\ea3d"; }
+.si-chatlayer::before { content: "\ea3e"; }
+.si-cloud::before { content: "\ea3f"; }
+.si-connection::before { content: "\ea40"; }
+.si-contact-center::before { content: "\ea41"; }
+.si-contact-pro::before { content: "\ea42"; }
+.si-contact::before { content: "\ea43"; }
+.si-cookies::before { content: "\ea44"; }
+.si-credit-card::before { content: "\ea45"; }
+.si-custom-message::before { content: "\ea46"; }
+.si-custom::before { content: "\ea47"; }
+.si-customer-satisfaction-smiley::before { content: "\ea48"; }
+.si-database::before { content: "\ea49"; }
+.si-decision::before { content: "\ea4a"; }
+.si-developer::before { content: "\ea4b"; }
+.si-direction::before { content: "\ea4c"; }
+.si-easytouse::before { content: "\ea4d"; }
+.si-edit::before { content: "\ea4e"; }
+.si-finance::before { content: "\ea4f"; }
+.si-flow-chart::before { content: "\ea50"; }
+.si-flow::before { content: "\ea51"; }
+.si-global-settings::before { content: "\ea52"; }
+.si-gym::before { content: "\ea53"; }
+.si-handshaking::before { content: "\ea54"; }
+.si-health-insurance::before { content: "\ea55"; }
+.si-healthcare::before { content: "\ea56"; }
+.si-help::before { content: "\ea57"; }
+.si-home::before { content: "\ea58"; }
+.si-idea::before { content: "\ea59"; }
+.si-integration::before { content: "\ea5a"; }
+.si-intelligent-revenue-maximisation::before { content: "\ea5b"; }
+.si-laptop::before { content: "\ea5c"; }
+.si-layout::before { content: "\ea5d"; }
+.si-line-chart-down::before { content: "\ea5e"; }
+.si-line-chart-up::before { content: "\ea5f"; }
+.si-lock::before { content: "\ea60"; }
+.si-logistic::before { content: "\ea61"; }
+.si-logo-campaigns-icon-wordmark::before { content: "\ea62"; }
+.si-logo-campaigns-icon::before { content: "\ea63"; }
+.si-logo-chatlayer-icon-wordmark::before { content: "\ea64"; }
+.si-logo-chatlayer-icon::before { content: "\ea65"; }
+.si-logo-contact-pro-icon-wordmark::before { content: "\ea66"; }
+.si-logo-contact-pro-icon::before { content: "\ea67"; }
+.si-logo-email-on-acid-icon-wordmark::before { content: "\ea68"; }
+.si-logo-email-on-acid-icon::before { content: "\ea69"; }
+.si-logo-engage-icon-wordmark::before { content: "\ea6a"; }
+.si-logo-engage-icon::before { content: "\ea6b"; }
+.si-logo-mailgun-icon-wordmark::before { content: "\ea6c"; }
+.si-logo-mailgun-icon::before { content: "\ea6d"; }
+.si-logo-mailjet-icon-wordmark::before { content: "\ea6e"; }
+.si-logo-mailjet-icon::before { content: "\ea6f"; }
+.si-logo-message-media-icon-wordmark::before { content: "\ea70"; }
+.si-logo-message-media-icon::before { content: "\ea71"; }
+.si-logo-message-studio-icon-wordmark::before { content: "\ea72"; }
+.si-logo-message-studio-icon::before { content: "\ea73"; }
+.si-logo-nectary-icon-wordmark::before { content: "\ea74"; }
+.si-logo-nectary-icon::before { content: "\ea75"; }
+.si-logo-portal-build-icon-wordmark::before { content: "\ea76"; }
+.si-logo-portal-build-icon::before { content: "\ea77"; }
+.si-logo-portal-connect-icon-wordmark::before { content: "\ea78"; }
+.si-logo-portal-connect-icon::before { content: "\ea79"; }
+.si-logo-portal-engage-icon-wordmark::before { content: "\ea7a"; }
+.si-logo-portal-engage-icon::before { content: "\ea7b"; }
+.si-logo-portal-mailgun-icon-wordmark::before { content: "\ea7c"; }
+.si-logo-portal-mailgun-icon::before { content: "\ea7d"; }
+.si-logo-portal-mailjet-icon-wordmark::before { content: "\ea7e"; }
+.si-logo-portal-mailjet-icon::before { content: "\ea7f"; }
+.si-logo-portal-message-media-icon-wordmark::before { content: "\ea80"; }
+.si-logo-portal-message-media-icon::before { content: "\ea81"; }
+.si-logo-portal-sinch-account-icon-wordmark::before { content: "\ea82"; }
+.si-logo-portal-sinch-id-icon-wordmark::before { content: "\ea83"; }
+.si-logo-simple-texting-icon-wordmark::before { content: "\ea84"; }
+.si-logo-simple-texting-icon::before { content: "\ea85"; }
+.si-logo-sinch-icon-wordmark::before { content: "\ea86"; }
+.si-logo-sinch-icon::before { content: "\ea87"; }
+.si-long-message::before { content: "\ea88"; }
+.si-loop::before { content: "\ea89"; }
+.si-low-cost::before { content: "\ea8a"; }
+.si-make-it-happen::before { content: "\ea8b"; }
+.si-make-money::before { content: "\ea8c"; }
+.si-massage::before { content: "\ea8d"; }
+.si-media::before { content: "\ea8e"; }
+.si-message-questions::before { content: "\ea8f"; }
+.si-message::before { content: "\ea90"; }
+.si-messaging::before { content: "\ea91"; }
+.si-mic::before { content: "\ea92"; }
+.si-mms::before { content: "\ea93"; }
+.si-mobile-intergration::before { content: "\ea94"; }
+.si-mobile-numbers::before { content: "\ea95"; }
+.si-mobile::before { content: "\ea96"; }
+.si-money::before { content: "\ea97"; }
+.si-multiple-channels::before { content: "\ea98"; }
+.si-music::before { content: "\ea99"; }
+.si-mute::before { content: "\ea9a"; }
+.si-news::before { content: "\ea9b"; }
+.si-numbers::before { content: "\ea9c"; }
+.si-office-activities::before { content: "\ea9d"; }
+.si-office::before { content: "\ea9e"; }
+.si-opened-message::before { content: "\ea9f"; }
+.si-operators::before { content: "\eaa0"; }
+.si-package::before { content: "\eaa1"; }
+.si-path::before { content: "\eaa2"; }
+.si-perso-message::before { content: "\eaa3"; }
+.si-pie-chart::before { content: "\eaa4"; }
+.si-piggybank::before { content: "\eaa5"; }
+.si-pin::before { content: "\eaa6"; }
+.si-price-tag::before { content: "\eaa7"; }
+.si-protection::before { content: "\eaa8"; }
+.si-purpose::before { content: "\eaa9"; }
+.si-push::before { content: "\eaaa"; }
+.si-puzzle::before { content: "\eaab"; }
+.si-queue::before { content: "\eaac"; }
+.si-rcs::before { content: "\eaad"; }
+.si-retail::before { content: "\eaae"; }
+.si-rich-content::before { content: "\eaaf"; }
+.si-rocket::before { content: "\eab0"; }
+.si-roi::before { content: "\eab1"; }
+.si-search::before { content: "\eab2"; }
+.si-send::before { content: "\eab3"; }
+.si-settings::before { content: "\eab4"; }
+.si-shopping-cart::before { content: "\eab5"; }
+.si-sms::before { content: "\eab6"; }
+.si-support::before { content: "\eab7"; }
+.si-system-settings::before { content: "\eab8"; }
+.si-telemast::before { content: "\eab9"; }
+.si-thumbs-down::before { content: "\eaba"; }
+.si-thumbs-up::before { content: "\eabb"; }
+.si-time::before { content: "\eabc"; }
+.si-tutorial::before { content: "\eabd"; }
+.si-user::before { content: "\eabe"; }
+.si-users::before { content: "\eabf"; }
+.si-verification-api::before { content: "\eac0"; }
+.si-verified-phone::before { content: "\eac1"; }
+.si-video-calling::before { content: "\eac2"; }
+.si-video-off::before { content: "\eac3"; }
+.si-video-on::before { content: "\eac4"; }
+.si-voice-calling::before { content: "\eac5"; }
+.si-voice-video-and-data::before { content: "\eac6"; }
+.si-webhook::before { content: "\eac7"; }
+.si-wheels::before { content: "\eac8"; }
+.si-wi-fi::before { content: "\eac9"; }
+
+

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinch Bootstrap Theme - Comprehensive Demo</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Sinch Theme -->
+  <link href="css/sinch-theme.css" rel="stylesheet">
+
+  <!-- Sinch Icon Font -->
+  <link href="css/sinch-icons-font.css" rel="stylesheet">
+
+  <!-- Prism.js Syntax Highlighting -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      padding-top: 56px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 56px;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      padding: 48px 0 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: var(--sinch-neutral-100);
+      width: 240px;
+    }
+
+    .sidebar .nav-link {
+      font-weight: 500;
+      color: var(--sinch-neutral-700);
+      padding: 0.5rem 1rem;
+      border-radius: var(--sinch-radius-sm, 6px);
+      margin: 2px 8px;
+    }
+
+    .sidebar .nav-link:hover {
+      color: var(--sinch-tropical-700);
+      background: var(--sinch-neutral-200);
+    }
+
+    .sidebar .nav-link.active {
+      color: var(--sinch-tropical-700);
+      background: white;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 2rem;
+    }
+
+    .section-title {
+      border-bottom: 2px solid var(--sinch-tropical-700);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .color-swatch {
+      width: 100%;
+      height: 80px;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-end;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 16px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 8px;
+      border-radius: 10px;
+      background: #D8DDE0;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .icon-item:hover {
+      background: #C5CCD1;
+      transform: translateY(-2px);
+    }
+
+    .icon-item img {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 8px;
+    }
+
+    .icon-item span {
+      font-size: 10px;
+      color: var(--sinch-neutral-600);
+      word-break: break-all;
+    }
+
+    .illustration-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 24px;
+    }
+
+    .illustration-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+      border-radius: 10px;
+      background: #D8DDE0;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .illustration-item:hover {
+      background: #C5CCD1;
+      transform: translateY(-2px);
+    }
+
+    .illustration-item img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .illustration-item span {
+      font-size: 11px;
+      color: var(--sinch-neutral-600);
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+    }
+
+    .logo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 12px;
+      border-radius: 10px;
+      background: #D8DDE0;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .logo-item:hover {
+      background: #C5CCD1;
+      transform: translateY(-2px);
+    }
+
+    .logo-item img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .logo-item span {
+      font-size: 10px;
+      color: var(--sinch-neutral-600);
+    }
+
+    /* Code block styling for Prism */
+    pre[class*="language-"] {
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    code[class*="language-"] {
+      font-family: "DM Mono", monospace;
+      font-size: 14px;
+    }
+
+    /* Inline code */
+    :not(pre) > code {
+      background: var(--sinch-neutral-100);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: "DM Mono", monospace;
+      font-size: 14px;
+      color: var(--sinch-tropical-700);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="icons/logos/sinch-icon.svg" alt="Sinch" width="32" height="32" class="me-2">
+      <span style="font-weight: 700;">Sinch Bootstrap Theme</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/sinchlabs/sinch-bootstrap-theme">GitHub</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://brand.sinch.com">Brand Guidelines</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <ul class="nav flex-column">
+    <li class="nav-item"><a class="nav-link active" href="#colors">Colors</a></li>
+    <li class="nav-item"><a class="nav-link" href="#typography">Typography</a></li>
+    <li class="nav-item"><a class="nav-link" href="#buttons">Buttons</a></li>
+    <li class="nav-item"><a class="nav-link" href="#forms">Forms</a></li>
+    <li class="nav-item"><a class="nav-link" href="#cards">Cards</a></li>
+    <li class="nav-item"><a class="nav-link" href="#alerts">Alerts</a></li>
+    <li class="nav-item"><a class="nav-link" href="#badges">Badges</a></li>
+    <li class="nav-item"><a class="nav-link" href="#tables">Tables</a></li>
+    <li class="nav-item"><a class="nav-link" href="#icon-font">Icon Font</a></li>
+    <li class="nav-item"><a class="nav-link" href="#branded-icons">Branded Icons</a></li>
+    <li class="nav-item"><a class="nav-link" href="#channel-icons">Channel Icons</a></li>
+    <li class="nav-item"><a class="nav-link" href="#product-logos">Product Logos</a></li>
+    <li class="nav-item"><a class="nav-link" href="#illustrations">Illustrations</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+
+  <!-- Colors Section -->
+  <section id="colors" class="mb-5">
+    <h2 class="section-title">Color Palette</h2>
+
+    <h5 class="mb-3">Primary Colors</h5>
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <div class="color-swatch" style="background: #FFBE3C; color: #000;">Honey #FFBE3C</div>
+      </div>
+      <div class="col-md-3">
+        <div class="color-swatch" style="background: #06998B; color: #fff;">Tropical #06998B</div>
+      </div>
+      <div class="col-md-3">
+        <div class="color-swatch" style="background: #3089F0; color: #fff;">Ocean #3089F0</div>
+      </div>
+      <div class="col-md-3">
+        <div class="color-swatch" style="background: #EB5454; color: #fff;">Raspberry #EB5454</div>
+      </div>
+    </div>
+
+    <h5 class="mb-3">Honey (Yellow/CTA) Palette</h5>
+    <div class="row g-2 mb-4">
+      <div class="col"><div class="color-swatch" style="background: #FFF9EB; color: #000;">50</div></div>
+      <div class="col"><div class="color-swatch" style="background: #FCECCB; color: #000;">100</div></div>
+      <div class="col"><div class="color-swatch" style="background: #FFDD99; color: #000;">200</div></div>
+      <div class="col"><div class="color-swatch" style="background: #FFCA61; color: #000;">300</div></div>
+      <div class="col"><div class="color-swatch" style="background: #FFBE3C; color: #000;">350</div></div>
+      <div class="col"><div class="color-swatch" style="background: #EB9605; color: #000;">400</div></div>
+      <div class="col"><div class="color-swatch" style="background: #C77904; color: #fff;">500</div></div>
+      <div class="col"><div class="color-swatch" style="background: #9E5A00; color: #fff;">600</div></div>
+      <div class="col"><div class="color-swatch" style="background: #824703; color: #fff;">700</div></div>
+    </div>
+
+    <h5 class="mb-3">Tropical (Teal/Primary) Palette</h5>
+    <div class="row g-2 mb-4">
+      <div class="col"><div class="color-swatch" style="background: #F0FAF4; color: #000;">50</div></div>
+      <div class="col"><div class="color-swatch" style="background: #E2F0E8; color: #000;">100</div></div>
+      <div class="col"><div class="color-swatch" style="background: #CEE5DA; color: #000;">200</div></div>
+      <div class="col"><div class="color-swatch" style="background: #AFDBCD; color: #000;">300</div></div>
+      <div class="col"><div class="color-swatch" style="background: #51B8A6; color: #000;">400</div></div>
+      <div class="col"><div class="color-swatch" style="background: #06998B; color: #fff;">500</div></div>
+      <div class="col"><div class="color-swatch" style="background: #007874; color: #fff;">600</div></div>
+      <div class="col"><div class="color-swatch" style="background: #006063; color: #fff;">700</div></div>
+      <div class="col"><div class="color-swatch" style="background: #0C333B; color: #fff;">800</div></div>
+    </div>
+
+    <h5 class="mb-3">Neutral (Grey) Palette</h5>
+    <div class="row g-2 mb-4">
+      <div class="col"><div class="color-swatch" style="background: #F7F9FA; color: #000;">50</div></div>
+      <div class="col"><div class="color-swatch" style="background: #EBEEF0; color: #000;">100</div></div>
+      <div class="col"><div class="color-swatch" style="background: #DCE2E5; color: #000;">200</div></div>
+      <div class="col"><div class="color-swatch" style="background: #C9D1D6; color: #000;">300</div></div>
+      <div class="col"><div class="color-swatch" style="background: #9AA5AD; color: #000;">400</div></div>
+      <div class="col"><div class="color-swatch" style="background: #6B7780; color: #fff;">500</div></div>
+      <div class="col"><div class="color-swatch" style="background: #495057; color: #fff;">600</div></div>
+      <div class="col"><div class="color-swatch" style="background: #343A40; color: #fff;">700</div></div>
+      <div class="col"><div class="color-swatch" style="background: #212529; color: #fff;">800</div></div>
+    </div>
+  </section>
+
+  <!-- Typography Section -->
+  <section id="typography" class="mb-5">
+    <h2 class="section-title">Typography</h2>
+    <p class="text-muted mb-4">DM Sans font family with -2% letter-spacing for headings</p>
+
+    <h1>Heading 1 - 50px Bold</h1>
+    <h2>Heading 2 - 40px Bold</h2>
+    <h3>Heading 3 - 32px Bold</h3>
+    <h4>Heading 4 - 24px Bold</h4>
+    <h5>Heading 5 - 20px Bold</h5>
+    <h6>Heading 6 - 16px Bold</h6>
+
+    <hr class="my-4">
+
+    <p class="lead">Lead paragraph - This is a lead paragraph with larger text for introductions.</p>
+    <p>Regular body text with DM Sans font, 16px size, and 135% line height. Good typography creates visual hierarchy and improves readability across all devices.</p>
+    <p><small>Small text for captions and footnotes</small></p>
+
+    <hr class="my-4">
+
+    <h5>Code Examples (with Prism.js)</h5>
+    <p>Inline code: <code>const api = new Sinch({ projectId: 'xxx' });</code></p>
+
+    <pre><code class="language-javascript">// Multi-line code block with syntax highlighting
+async function sendSMS(to, message) {
+  const response = await api.sms.batches.send({
+    to: [to],
+    from: '+1234567890',
+    body: message
+  });
+  return response;
+}
+
+// Usage
+sendSMS('+1987654321', 'Hello from Sinch!')
+  .then(result => console.log('Sent:', result.id))
+  .catch(err => console.error('Error:', err));</code></pre>
+
+    <pre><code class="language-html">&lt;!-- HTML Example --&gt;
+&lt;button class="btn btn-cta"&gt;
+  Send Message
+&lt;/button&gt;
+
+&lt;div class="card shadow-sinch-2"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5&gt;Card Title&lt;/h5&gt;
+    &lt;p&gt;Card content here.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <pre><code class="language-css">/* CSS Example */
+.custom-button {
+  background: var(--sinch-honey-350);
+  color: var(--sinch-neutral-900);
+  border-radius: var(--sinch-radius-md);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+}</code></pre>
+  </section>
+
+  <!-- Buttons Section -->
+  <section id="buttons" class="mb-5">
+    <h2 class="section-title">Buttons</h2>
+
+    <h5 class="mb-3">Primary Buttons</h5>
+    <div class="mb-4">
+      <button class="btn btn-cta me-2 mb-2">CTA Button (Yellow)</button>
+      <button class="btn btn-primary me-2 mb-2">Primary (Teal)</button>
+      <button class="btn btn-secondary me-2 mb-2">Secondary</button>
+      <button class="btn btn-success me-2 mb-2">Success</button>
+      <button class="btn btn-danger me-2 mb-2">Danger</button>
+      <button class="btn btn-warning me-2 mb-2">Warning</button>
+      <button class="btn btn-info me-2 mb-2">Info</button>
+      <button class="btn btn-dark me-2 mb-2">Dark</button>
+      <button class="btn btn-light me-2 mb-2">Light</button>
+    </div>
+
+    <h5 class="mb-3">Outline Buttons</h5>
+    <div class="mb-4">
+      <button class="btn btn-outline-primary me-2 mb-2">Primary</button>
+      <button class="btn btn-outline-secondary me-2 mb-2">Secondary</button>
+      <button class="btn btn-outline-success me-2 mb-2">Success</button>
+      <button class="btn btn-outline-danger me-2 mb-2">Danger</button>
+      <button class="btn btn-outline-dark me-2 mb-2">Dark</button>
+    </div>
+
+    <h5 class="mb-3">Button Sizes</h5>
+    <div class="mb-4">
+      <button class="btn btn-cta btn-sm me-2">Small</button>
+      <button class="btn btn-cta me-2">Default</button>
+      <button class="btn btn-cta btn-lg me-2">Large</button>
+    </div>
+
+    <h5 class="mb-3">Button States</h5>
+    <div class="mb-4">
+      <button class="btn btn-primary me-2" disabled>Disabled</button>
+      <button class="btn btn-primary me-2">
+        <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+        Loading...
+      </button>
+    </div>
+  </section>
+
+  <!-- Forms Section -->
+  <section id="forms" class="mb-5">
+    <h2 class="section-title">Forms</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" placeholder="you@example.com">
+            <div class="form-text">We'll never share your email.</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Enter password">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Country</label>
+            <select class="form-select">
+              <option selected>Choose...</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option>Sweden</option>
+              <option>Germany</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="3" placeholder="Your message..."></textarea>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="check1">
+            <label class="form-check-label" for="check1">I agree to the terms</label>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="plan" id="plan1" checked>
+              <label class="form-check-label" for="plan1">Free</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="plan" id="plan2">
+              <label class="form-check-label" for="plan2">Pro</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="plan" id="plan3">
+              <label class="form-check-label" for="plan3">Enterprise</label>
+            </div>
+          </div>
+
+          <div class="mb-3 form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="switch1">
+            <label class="form-check-label" for="switch1">Enable notifications</label>
+          </div>
+
+          <button type="submit" class="btn btn-cta">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <h5 class="mb-3">Validation States</h5>
+        <div class="mb-3">
+          <label class="form-label">Valid input</label>
+          <input type="text" class="form-control is-valid" value="Looks good!">
+          <div class="valid-feedback">Great choice!</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Invalid input</label>
+          <input type="text" class="form-control is-invalid" value="">
+          <div class="invalid-feedback">Please provide a value.</div>
+        </div>
+
+        <h5 class="mb-3 mt-4">Input Groups</h5>
+        <div class="input-group mb-3">
+          <span class="input-group-text">@</span>
+          <input type="text" class="form-control" placeholder="Username">
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search...">
+          <button class="btn btn-primary" type="button">Search</button>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" placeholder="Amount">
+          <span class="input-group-text">.00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards Section -->
+  <section id="cards" class="mb-5">
+    <h2 class="section-title">Cards</h2>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-header">
+            <h5 class="mb-0">Basic Card</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">This is a basic card with header and body.</p>
+            <a href="#" class="btn btn-primary">Action</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img src="icons/branded/sms.svg" width="32" height="32" class="me-2">
+              <h5 class="card-title mb-0">SMS API</h5>
+            </div>
+            <p class="card-text">Send and receive text messages globally with our reliable SMS API.</p>
+            <a href="#" class="btn btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow border-primary">
+          <div class="card-body text-center py-4">
+            <img src="icons/branded/rocket.svg" width="48" height="48" class="mb-3">
+            <h5 class="card-title">Get Started</h5>
+            <p class="card-text">Start building with Sinch APIs today.</p>
+            <a href="#" class="btn btn-cta">Sign Up Free</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alerts Section -->
+  <section id="alerts" class="mb-5">
+    <h2 class="section-title">Alerts</h2>
+
+    <div class="alert alert-primary" role="alert">
+      <strong>Primary!</strong> This is a primary alert message.
+    </div>
+    <div class="alert alert-success" role="alert">
+      <strong>Success!</strong> Your message has been sent successfully.
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <strong>Error!</strong> Something went wrong. Please try again.
+    </div>
+    <div class="alert alert-warning" role="alert">
+      <strong>Warning!</strong> Please review your input before submitting.
+    </div>
+    <div class="alert alert-info" role="alert">
+      <strong>Info!</strong> New features are available in this release.
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Dismissible!</strong> Click the X to close this alert.
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  </section>
+
+  <!-- Badges Section -->
+  <section id="badges" class="mb-5">
+    <h2 class="section-title">Badges</h2>
+
+    <div class="mb-4">
+      <span class="badge bg-primary me-1">Primary</span>
+      <span class="badge bg-secondary me-1">Secondary</span>
+      <span class="badge bg-success me-1">Success</span>
+      <span class="badge bg-danger me-1">Danger</span>
+      <span class="badge bg-warning me-1">Warning</span>
+      <span class="badge bg-info me-1">Info</span>
+      <span class="badge bg-dark me-1">Dark</span>
+    </div>
+
+    <div class="mb-4">
+      <span class="badge rounded-pill bg-primary me-1">Primary</span>
+      <span class="badge rounded-pill bg-success me-1">Success</span>
+      <span class="badge rounded-pill bg-danger me-1">Danger</span>
+    </div>
+
+    <h5>Example with buttons</h5>
+    <button class="btn btn-primary">
+      Messages <span class="badge bg-light text-dark ms-1">4</span>
+    </button>
+  </section>
+
+  <!-- Tables Section -->
+  <section id="tables" class="mb-5">
+    <h2 class="section-title">Tables</h2>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Channel</th>
+          <th>Status</th>
+          <th>Messages</th>
+          <th>Delivery Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="icons/channel/sms-round.svg" width="20" height="20" class="me-2">SMS</td>
+          <td><span class="badge bg-success">Active</span></td>
+          <td>12,450</td>
+          <td>99.2%</td>
+        </tr>
+        <tr>
+          <td><img src="icons/channel/whatsapp.svg" width="20" height="20" class="me-2">WhatsApp</td>
+          <td><span class="badge bg-success">Active</span></td>
+          <td>8,320</td>
+          <td>98.7%</td>
+        </tr>
+        <tr>
+          <td><img src="icons/channel/facebook-messenger.svg" width="20" height="20" class="me-2">Messenger</td>
+          <td><span class="badge bg-warning">Limited</span></td>
+          <td>2,150</td>
+          <td>97.5%</td>
+        </tr>
+        <tr>
+          <td><img src="icons/channel/rcs-round.svg" width="20" height="20" class="me-2">RCS</td>
+          <td><span class="badge bg-secondary">Beta</span></td>
+          <td>580</td>
+          <td>96.8%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Icon Font Section -->
+  <section id="icon-font" class="mb-5">
+    <h2 class="section-title">Icon Font (201 icons)</h2>
+    <p class="text-muted mb-4">CSS-based icon font - use <code>&lt;i class="si-iconname"&gt;</code> syntax. Colors inherit from CSS <code>color</code> property.</p>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header"><h6 class="mb-0">Basic Usage</h6></div>
+          <div class="card-body">
+            <p class="mb-3">
+              <i class="si-sms si-2x me-3"></i>
+              <i class="si-chat si-2x me-3"></i>
+              <i class="si-call si-2x me-3"></i>
+              <i class="si-webhook si-2x me-3"></i>
+              <i class="si-developer si-2x me-3"></i>
+            </p>
+            <pre><code class="language-html">&lt;i class="si-sms"&gt;&lt;/i&gt;
+&lt;i class="si-chat"&gt;&lt;/i&gt;
+&lt;i class="si-call"&gt;&lt;/i&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header"><h6 class="mb-0">Channel Icons</h6></div>
+          <div class="card-body">
+            <p class="mb-3">
+              <i class="si-channel-whatsapp si-2x me-3" style="color: #25D366;"></i>
+              <i class="si-channel-telegram si-2x me-3" style="color: #0088cc;"></i>
+              <i class="si-channel-facebook-messenger si-2x me-3" style="color: #0084ff;"></i>
+              <i class="si-channel-instagram si-2x me-3" style="color: #E4405F;"></i>
+              <i class="si-channel-viber si-2x me-3" style="color: #7360F2;"></i>
+            </p>
+            <pre><code class="language-html">&lt;i class="si-channel-whatsapp" style="color: #25D366;"&gt;&lt;/i&gt;
+&lt;i class="si-channel-telegram" style="color: #0088cc;"&gt;&lt;/i&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header"><h6 class="mb-0">Sizes</h6></div>
+          <div class="card-body">
+            <p class="mb-3">
+              <i class="si-sms si-xs me-2"></i>
+              <i class="si-sms si-sm me-2"></i>
+              <i class="si-sms me-2"></i>
+              <i class="si-sms si-lg me-2"></i>
+              <i class="si-sms si-xl me-2"></i>
+              <i class="si-sms si-2x me-2"></i>
+              <i class="si-sms si-3x me-2"></i>
+            </p>
+            <pre><code class="language-html">&lt;i class="si-sms si-xs"&gt;&lt;/i&gt;  &lt;!-- 0.75em --&gt;
+&lt;i class="si-sms si-sm"&gt;&lt;/i&gt;  &lt;!-- 0.875em --&gt;
+&lt;i class="si-sms"&gt;&lt;/i&gt;        &lt;!-- 1em (default) --&gt;
+&lt;i class="si-sms si-lg"&gt;&lt;/i&gt;  &lt;!-- 1.25em --&gt;
+&lt;i class="si-sms si-xl"&gt;&lt;/i&gt;  &lt;!-- 1.5em --&gt;
+&lt;i class="si-sms si-2x"&gt;&lt;/i&gt;  &lt;!-- 2em --&gt;
+&lt;i class="si-sms si-3x"&gt;&lt;/i&gt;  &lt;!-- 3em --&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header"><h6 class="mb-0">Product Logos</h6></div>
+          <div class="card-body">
+            <p class="mb-3">
+              <i class="si-logo-sinch-icon si-2x me-3"></i>
+              <i class="si-logo-mailgun-icon si-2x me-3"></i>
+              <i class="si-logo-mailjet-icon si-2x me-3"></i>
+              <i class="si-logo-engage-icon si-2x me-3"></i>
+              <i class="si-logo-chatlayer-icon si-2x me-3"></i>
+            </p>
+            <pre><code class="language-html">&lt;i class="si-logo-sinch-icon"&gt;&lt;/i&gt;
+&lt;i class="si-logo-mailgun-icon"&gt;&lt;/i&gt;
+&lt;i class="si-logo-mailjet-icon"&gt;&lt;/i&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header"><h6 class="mb-0">In Buttons</h6></div>
+      <div class="card-body">
+        <button class="btn btn-cta me-2"><i class="si-sms me-2"></i>Send SMS</button>
+        <button class="btn btn-primary me-2"><i class="si-channel-whatsapp me-2"></i>WhatsApp</button>
+        <button class="btn btn-outline-primary me-2"><i class="si-call me-2"></i>Call</button>
+        <button class="btn btn-secondary me-2"><i class="si-settings me-2"></i>Settings</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Branded Icons Section -->
+  <section id="branded-icons" class="mb-5">
+    <h2 class="section-title">Branded Icons (125)</h2>
+    <p class="text-muted mb-4">Sinch branded icons for products, features, and concepts. Path: <code>icons/branded/</code></p>
+
+    <div class="icon-grid">
+      <div class="icon-item"><img src="icons/branded/sms.svg" alt="SMS"><span>sms</span></div>
+      <div class="icon-item"><img src="icons/branded/chat.svg" alt="Chat"><span>chat</span></div>
+      <div class="icon-item"><img src="icons/branded/call.svg" alt="Call"><span>call</span></div>
+      <div class="icon-item"><img src="icons/branded/voice-calling.svg" alt="Voice"><span>voice-calling</span></div>
+      <div class="icon-item"><img src="icons/branded/video-calling.svg" alt="Video"><span>video-calling</span></div>
+      <div class="icon-item"><img src="icons/branded/webhook.svg" alt="Webhook"><span>webhook</span></div>
+      <div class="icon-item"><img src="icons/branded/developer.svg" alt="Developer"><span>developer</span></div>
+      <div class="icon-item"><img src="icons/branded/ai.svg" alt="AI"><span>ai</span></div>
+      <div class="icon-item"><img src="icons/branded/chatbot.svg" alt="Chatbot"><span>chatbot</span></div>
+      <div class="icon-item"><img src="icons/branded/integration.svg" alt="Integration"><span>integration</span></div>
+      <div class="icon-item"><img src="icons/branded/cloud.svg" alt="Cloud"><span>cloud</span></div>
+      <div class="icon-item"><img src="icons/branded/database.svg" alt="Database"><span>database</span></div>
+      <div class="icon-item"><img src="icons/branded/lock.svg" alt="Lock"><span>lock</span></div>
+      <div class="icon-item"><img src="icons/branded/protection.svg" alt="Protection"><span>protection</span></div>
+      <div class="icon-item"><img src="icons/branded/settings.svg" alt="Settings"><span>settings</span></div>
+      <div class="icon-item"><img src="icons/branded/user.svg" alt="User"><span>user</span></div>
+      <div class="icon-item"><img src="icons/branded/users.svg" alt="Users"><span>users</span></div>
+      <div class="icon-item"><img src="icons/branded/contact.svg" alt="Contact"><span>contact</span></div>
+      <div class="icon-item"><img src="icons/branded/support.svg" alt="Support"><span>support</span></div>
+      <div class="icon-item"><img src="icons/branded/help.svg" alt="Help"><span>help</span></div>
+      <div class="icon-item"><img src="icons/branded/rocket.svg" alt="Rocket"><span>rocket</span></div>
+      <div class="icon-item"><img src="icons/branded/idea.svg" alt="Idea"><span>idea</span></div>
+      <div class="icon-item"><img src="icons/branded/message.svg" alt="Message"><span>message</span></div>
+      <div class="icon-item"><img src="icons/branded/messaging.svg" alt="Messaging"><span>messaging</span></div>
+      <div class="icon-item"><img src="icons/branded/send.svg" alt="Send"><span>send</span></div>
+      <div class="icon-item"><img src="icons/branded/bell.svg" alt="Bell"><span>bell</span></div>
+      <div class="icon-item"><img src="icons/branded/calendar.svg" alt="Calendar"><span>calendar</span></div>
+      <div class="icon-item"><img src="icons/branded/time.svg" alt="Time"><span>time</span></div>
+      <div class="icon-item"><img src="icons/branded/search.svg" alt="Search"><span>search</span></div>
+      <div class="icon-item"><img src="icons/branded/edit.svg" alt="Edit"><span>edit</span></div>
+      <div class="icon-item"><img src="icons/branded/campaigns.svg" alt="Campaigns"><span>campaigns</span></div>
+      <div class="icon-item"><img src="icons/branded/channels.svg" alt="Channels"><span>channels</span></div>
+      <div class="icon-item"><img src="icons/branded/flow.svg" alt="Flow"><span>flow</span></div>
+      <div class="icon-item"><img src="icons/branded/numbers.svg" alt="Numbers"><span>numbers</span></div>
+      <div class="icon-item"><img src="icons/branded/verification-api.svg" alt="Verification"><span>verification-api</span></div>
+      <div class="icon-item"><img src="icons/branded/billing.svg" alt="Billing"><span>billing</span></div>
+    </div>
+
+    <p class="text-muted mt-3"><em>Showing 36 of 125 icons. See <code>icons/branded/</code> for complete set.</em></p>
+  </section>
+
+  <!-- Channel Icons Section -->
+  <section id="channel-icons" class="mb-5">
+    <h2 class="section-title">Channel Icons (38)</h2>
+    <p class="text-muted mb-4">Communication channel icons in round and square variants. Path: <code>icons/channel/</code></p>
+
+    <div class="icon-grid">
+      <div class="icon-item"><img src="icons/channel/sms-round.svg" alt="SMS"><span>sms-round</span></div>
+      <div class="icon-item"><img src="icons/channel/sms-square.svg" alt="SMS"><span>sms-square</span></div>
+      <div class="icon-item"><img src="icons/channel/whatsapp.svg" alt="WhatsApp"><span>whatsapp</span></div>
+      <div class="icon-item"><img src="icons/channel/whatsapp-square.svg" alt="WhatsApp"><span>whatsapp-square</span></div>
+      <div class="icon-item"><img src="icons/channel/facebook-messenger.svg" alt="Messenger"><span>facebook-messenger</span></div>
+      <div class="icon-item"><img src="icons/channel/facebook-messenger-square.svg" alt="Messenger"><span>messenger-square</span></div>
+      <div class="icon-item"><img src="icons/channel/telegram.svg" alt="Telegram"><span>telegram</span></div>
+      <div class="icon-item"><img src="icons/channel/telegram-square.svg" alt="Telegram"><span>telegram-square</span></div>
+      <div class="icon-item"><img src="icons/channel/viber.svg" alt="Viber"><span>viber</span></div>
+      <div class="icon-item"><img src="icons/channel/viber-square.svg" alt="Viber"><span>viber-square</span></div>
+      <div class="icon-item"><img src="icons/channel/instagram.svg" alt="Instagram"><span>instagram</span></div>
+      <div class="icon-item"><img src="icons/channel/instagram-square.svg" alt="Instagram"><span>instagram-square</span></div>
+      <div class="icon-item"><img src="icons/channel/line.svg" alt="LINE"><span>line</span></div>
+      <div class="icon-item"><img src="icons/channel/line-square.svg" alt="LINE"><span>line-square</span></div>
+      <div class="icon-item"><img src="icons/channel/wechat.svg" alt="WeChat"><span>wechat</span></div>
+      <div class="icon-item"><img src="icons/channel/wechat-square.svg" alt="WeChat"><span>wechat-square</span></div>
+      <div class="icon-item"><img src="icons/channel/rcs-round.svg" alt="RCS"><span>rcs-round</span></div>
+      <div class="icon-item"><img src="icons/channel/rcs-square.svg" alt="RCS"><span>rcs-square</span></div>
+      <div class="icon-item"><img src="icons/channel/mms-round.svg" alt="MMS"><span>mms-round</span></div>
+      <div class="icon-item"><img src="icons/channel/mms-square.svg" alt="MMS"><span>mms-square</span></div>
+      <div class="icon-item"><img src="icons/channel/phone-round.svg" alt="Phone"><span>phone-round</span></div>
+      <div class="icon-item"><img src="icons/channel/phone-square.svg" alt="Phone"><span>phone-square</span></div>
+      <div class="icon-item"><img src="icons/channel/webchat-round.svg" alt="Webchat"><span>webchat-round</span></div>
+      <div class="icon-item"><img src="icons/channel/webchat-square.svg" alt="Webchat"><span>webchat-square</span></div>
+    </div>
+  </section>
+
+  <!-- Product Logos Section -->
+  <section id="product-logos" class="mb-5">
+    <h2 class="section-title">Product Logos (38)</h2>
+    <p class="text-muted mb-4">Sinch product and brand logos. Path: <code>icons/logos/</code></p>
+
+    <div class="logo-grid">
+      <div class="logo-item"><img src="icons/logos/sinch-icon.svg" alt="Sinch"><span>sinch-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/sinch-icon-wordmark.svg" alt="Sinch"><span>sinch-icon-wordmark</span></div>
+      <div class="logo-item"><img src="icons/logos/engage-icon.svg" alt="Engage"><span>engage-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/engage-icon-wordmark.svg" alt="Engage"><span>engage-icon-wordmark</span></div>
+      <div class="logo-item"><img src="icons/logos/chatlayer-icon.svg" alt="Chatlayer"><span>chatlayer-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/chatlayer-icon-wordmark.svg" alt="Chatlayer"><span>chatlayer-icon-wordmark</span></div>
+      <div class="logo-item"><img src="icons/logos/mailgun-icon.svg" alt="Mailgun"><span>mailgun-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/mailgun-icon-wordmark.svg" alt="Mailgun"><span>mailgun-icon-wordmark</span></div>
+      <div class="logo-item"><img src="icons/logos/mailjet-icon.svg" alt="Mailjet"><span>mailjet-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/mailjet-icon-wordmark.svg" alt="Mailjet"><span>mailjet-icon-wordmark</span></div>
+      <div class="logo-item"><img src="icons/logos/campaigns-icon.svg" alt="Campaigns"><span>campaigns-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/campaigns-icon-wordmark.svg" alt="Campaigns"><span>campaigns-icon-wordmark</span></div>
+      <div class="logo-item"><img src="icons/logos/contact-pro-icon.svg" alt="Contact Pro"><span>contact-pro-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/message-media-icon.svg" alt="MessageMedia"><span>message-media-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/simple-texting-icon.svg" alt="SimpleTexting"><span>simple-texting-icon</span></div>
+      <div class="logo-item"><img src="icons/logos/nectary-icon.svg" alt="Nectary"><span>nectary-icon</span></div>
+    </div>
+  </section>
+
+  <!-- Illustrations Section -->
+  <section id="illustrations" class="mb-5">
+    <h2 class="section-title">Illustrations (114)</h2>
+    <p class="text-muted mb-4">SVG illustrations for marketing and product pages. Path: <code>icons/illustrations/</code></p>
+
+    <div class="illustration-grid">
+      <div class="illustration-item"><img src="icons/illustrations/5g.svg" alt="5G"><span>5g</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/chat-bot.svg" alt="Chatbot"><span>chat-bot</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/code.svg" alt="Code"><span>code</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/conversation-api.svg" alt="Conversation API"><span>conversation-api</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/credit-card.svg" alt="Credit Card"><span>credit-card</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/cute-bee.svg" alt="Cute Bee"><span>cute-bee</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/decorative-flamingo.svg" alt="Flamingo"><span>decorative-flamingo</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/desktop.svg" alt="Desktop"><span>desktop</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/global-reach.svg" alt="Global Reach"><span>global-reach</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/voicebot.svg" alt="Voicebot"><span>voicebot</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/megaphone.svg" alt="Megaphone"><span>megaphone</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/lightbulb.svg" alt="Lightbulb"><span>lightbulb</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/jump.svg" alt="Jump"><span>jump</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/numbers-passing.svg" alt="Numbers"><span>numbers-passing</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/stats.svg" alt="Stats"><span>stats</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/shopping.svg" alt="Shopping"><span>shopping</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/messages.svg" alt="Messages"><span>messages</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/security.svg" alt="Security"><span>security</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/video-voice-call.svg" alt="Video Call"><span>video-voice-call</span></div>
+      <div class="illustration-item"><img src="icons/illustrations/omnichannel-messaging.svg" alt="Omnichannel"><span>omnichannel-messaging</span></div>
+    </div>
+
+    <p class="text-muted mt-3"><em>Showing 20 of 114 illustrations. See <code>icons/illustrations/</code> for complete set.</em></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-top pt-4 mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="text-muted">Sinch Bootstrap Theme v1.0.0</p>
+        <p class="text-muted small">Based on Sinch Brand Guidelines and Nectary Design System</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="https://github.com/sinchlabs/sinch-bootstrap-theme" class="text-decoration-none me-3">GitHub</a>
+        <a href="https://brand.sinch.com" class="text-decoration-none me-3">Brand Guidelines</a>
+        <a href="https://developers.sinch.com" class="text-decoration-none">Developer Portal</a>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Prism.js Syntax Highlighting -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+
+<script>
+  // Sidebar active state on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.sidebar .nav-link');
+
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 100;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav);
+</script>
+
+</body>
+</html>

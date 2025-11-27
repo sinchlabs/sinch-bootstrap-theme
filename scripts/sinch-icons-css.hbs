@@ -1,0 +1,58 @@
+/**
+ * Sinch Icons Font
+ * Generated icon font with CSS classes for easy usage
+ *
+ * Usage:
+ *   <i class="si si-sms"></i>
+ *   <i class="si si-channel-whatsapp" style="color: green;"></i>
+ *   <i class="si si-logo-sinch-icon"></i>
+ *
+ * Sizing:
+ *   <i class="si si-sms si-lg"></i>
+ *   <i class="si si-sms si-2x"></i>
+ *
+ * Colors inherit from parent element's color property
+ */
+
+@font-face {
+  font-family: "{{fontName}}";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("{{fontsUrl}}/{{fontName}}.woff2") format("woff2"),
+       url("{{fontsUrl}}/{{fontName}}.woff") format("woff");
+}
+
+/* Base icon class */
+{{selector}} {
+  font-family: "{{fontName}}" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Size variants */
+{{selector}}.si-xs { font-size: 0.75em; }
+{{selector}}.si-sm { font-size: 0.875em; }
+{{selector}}.si-lg { font-size: 1.25em; }
+{{selector}}.si-xl { font-size: 1.5em; }
+{{selector}}.si-2x { font-size: 2em; }
+{{selector}}.si-3x { font-size: 3em; }
+{{selector}}.si-4x { font-size: 4em; }
+{{selector}}.si-5x { font-size: 5em; }
+
+/* Fixed width for alignment */
+{{selector}}.si-fw {
+  width: 1.25em;
+  text-align: center;
+}
+
+/* Icon classes */
+{{#each codepoints}}
+.{{../prefix}}-{{@key}}::before { content: "\{{this}}"; }
+{{/each}}
